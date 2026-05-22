@@ -1,0 +1,9 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Alexandre Varga
+	email = alexandrevargadev@gmail.com
+# Please adapt and uncomment the following lines:
+#	name = Alexandre Varga Junior
+#	email = alexandrevarga1@gmail.com
+[core]
+	editor = nano

@@ -1,0 +1,18 @@
+ter 05 mai 2026 16:08:07 -03 | INPUT: o q é inode
+ter 05 mai 2026 16:15:16 -03 | INPUT: o q é inode
+ter 05 mai 2026 16:16:11 -03 | INPUT: procure a palavra 'inode' em todos os arquivos markdown deste diretório
+ter 05 mai 2026 16:18:21 -03 | INPUT: -p procure a palavra inode em arquivos markdown
+ter 05 mai 2026 16:19:49 -03 | INPUT: -l
+ter 05 mai 2026 16:22:33 -03 | INPUT: -p teste de busca
+ter 05 mai 2026 16:23:39 -03 | INPUT: -p teste
+ter 05 mai 2026 16:24:24 -03 | INPUT: o q é inode
+sex 08 mai 2026 06:34:30 -03 | INPUT: mcp add linux-mcp-server /home/alexandre/.local/bin/linux-mcp-server --scope user
+sex 08 mai 2026 06:36:30 -03 | INPUT: trust /home/alexandre
+sex 08 mai 2026 07:14:21 -03 | INPUT: mcp list
+dom 10 mai 2026 06:30:15 -03 | INPUT: SRE ALERT: CPU alta (90%) detectada. Snapshot: USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+alexand+  210295 33.3  0.0 232428  9788 pts/3    Ss+  06:30   0:00 /usr/bin/bash -c shopt -u promptvars nullglob extglob nocaseglob dotglob; ( cat <<EOF > manual_test.sh #!/bin/bash CPU=90 REASON="CPU alta (90%)" SNAPSHOT=\$(ps aux --sort=-%cpu | head -n 6) gemini "SRE ALERT: \$REASON detectada. Snapshot: \$SNAPSHOT" EOF chmod +x manual_test.sh; ./manual_test.sh; rm manual_test.sh; tail -n 20 ~/.config/gemini/logs/execution.log ) __code=$?; pgrep -g 0 >/tmp/gemini-shell-8VwJoD/pgrep.tmp 2>&1; exit $__code;
+alexand+  202407 13.8  3.8 3619316 448340 ?      Sl   mai09  54:27 /app/share/stremio/stremio -o
+alexand+  210124 13.4  3.5 43884500 419348 ?     SLl  06:23   0:54 /usr/bin/node-22 --max-old-space-size=5745 /usr/local/bin/gemini SRE ALERT: CPU alta (100%) detectada.           Snapshot dos processos no momento do alerta:     USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND alexand+  210114  100  0.0 234884 10464 ?        R    06:23   0:00 ps aux --sort=-%cpu alexand+  210095 77.7  0.0 236232 11348 pts/3    R+   06:23   0:00 sha256sum /dev/zero alexand+  210083 33.3  0.0 236232 11344 pts/3    R+   06:23   0:00 sha256sum /dev/zero alexand+  210084 33.3  0.0 236232 11344 pts/3    R+   06:23   0:00 sha256sum /dev/zero alexand+  210085 33.3  0.0 236232 11348 pts/3    R+   06:23   0:00 sha256sum /dev/zero          Por favor, utilize as ferramentas do 'linux-mcp-server' para:     1. Identificar os processos vilões baseando-se no snapshot acima.     2. Analisar logs recentes do sistema (journalctl) em busca de erros relacionados.     3. Sugerir uma ação imediata de mitigação.          Responda no formato SRE definido no meu GEMINI.md.
+alexand+  206668  5.2  4.1 44441796 492956 pts/0 Rl+  04:41   5:45 /usr/bin/node-22 --max-old-space-size=5745 /usr/local/bin/gemini  👤 alexandre@work 📍 Dir: ~   
+alexand+  202409  3.8  1.5 1508728 184424 ?      Sl   mai09  15:03 node /app/share/stremio/server.js
+ter 19 mai 2026 01:11:05 -03 | INPUT: --version

@@ -1,0 +1,20 @@
+version: 1
+
+rules:
+  - name: safe_readonly
+    match:
+      tool: shell
+      command: "^(ls|cat|grep|find|head|tail|less|pwd|whoami|df|du|free|uptime|ps|top|htop|journalctl|dmesg)"
+    action: allow
+
+  - name: controlled_changes
+    match:
+      tool: shell
+      command: "^(systemctl|dnf|apt|kill|chmod|chown)"
+    action: ask
+
+  - name: dangerous_block
+    match:
+      tool: shell
+      command: "^(rm|mkfs|dd|shutdown|reboot|:(){:|:&};:)"
+    action: deny

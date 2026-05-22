@@ -1,0 +1,19 @@
+
+# Caches
+*Cache*
+*cache*
+Code Cache/
+CachedProfilesData/
+CachedExtensionVSIXs/
+CachedConfigurations/
+CachedData/
+
+# Logs
+*log*
+logs/
+*.log
+
+# Crash reports
+Crashpad/
+Crash Reports/
+*.dmp

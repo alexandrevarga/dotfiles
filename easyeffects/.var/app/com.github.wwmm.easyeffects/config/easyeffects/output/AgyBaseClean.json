@@ -327,15 +327,15 @@
         },
         "filter#0": {
             "balance": 0.0,
-            "bypass": false,
+            "bypass": true,
             "equal-mode": "IIR",
-            "frequency": 38.0,
+            "frequency": 32.0,
             "gain": 0.0,
             "input-gain": 0.0,
             "mode": "RLC (BT)",
             "output-gain": 0.0,
             "quality": 0.0,
-            "slope": "x2",
+            "slope": "x1",
             "type": "High-pass",
             "width": 4.0
         },

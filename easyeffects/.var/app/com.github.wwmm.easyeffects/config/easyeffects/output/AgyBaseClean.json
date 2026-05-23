@@ -329,7 +329,7 @@
             "balance": 0.0,
             "bypass": false,
             "equal-mode": "IIR",
-            "frequency": 45.0,
+            "frequency": 38.0,
             "gain": 0.0,
             "input-gain": 0.0,
             "mode": "RLC (BT)",

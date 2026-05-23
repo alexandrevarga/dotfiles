@@ -9,62 +9,62 @@
             },
             "band1": {
                 "bypass": false,
-                "intensity": -1.0,
+                "intensity": -0.5,
                 "mute": false
             },
             "band10": {
                 "bypass": false,
-                "intensity": -10.0,
+                "intensity": -5.0,
                 "mute": false
             },
             "band11": {
                 "bypass": false,
-                "intensity": -12.0,
+                "intensity": -6.0,
                 "mute": false
             },
             "band12": {
                 "bypass": false,
-                "intensity": -14.0,
+                "intensity": -7.0,
                 "mute": false
             },
             "band2": {
                 "bypass": false,
-                "intensity": -2.0,
+                "intensity": -1.0,
                 "mute": false
             },
             "band3": {
                 "bypass": false,
-                "intensity": -3.0,
+                "intensity": -1.5,
                 "mute": false
             },
             "band4": {
                 "bypass": false,
-                "intensity": -4.0,
+                "intensity": -2.0,
                 "mute": false
             },
             "band5": {
                 "bypass": false,
-                "intensity": -5.0,
+                "intensity": -2.5,
                 "mute": false
             },
             "band6": {
                 "bypass": false,
-                "intensity": -6.0,
+                "intensity": -3.0,
                 "mute": false
             },
             "band7": {
                 "bypass": false,
-                "intensity": -7.0,
+                "intensity": -3.5,
                 "mute": false
             },
             "band8": {
                 "bypass": false,
-                "intensity": -8.0,
+                "intensity": -4.0,
                 "mute": false
             },
             "band9": {
                 "bypass": false,
-                "intensity": -9.0,
+                "intensity": -4.5,
                 "mute": false
             },
             "bypass": false,
@@ -307,8 +307,8 @@
             "split-channels": false
         },
         "exciter#0": {
-            "amount": -11.999999999999973,
-            "blend": 4.0,
+            "amount": -3.5,
+            "blend": 0.0,
             "bypass": false,
             "ceil": 16000.0,
             "ceil-active": false,
@@ -371,7 +371,7 @@
             "dithering": "None",
             "external-sidechain": false,
             "gain-boost": true,
-            "input-gain": 8.0,
+            "input-gain": 5.0,
             "lookahead": 5.0,
             "mode": "Herm Thin",
             "output-gain": -4.0,
@@ -379,7 +379,7 @@
             "release": 5.0,
             "sidechain-preamp": 0.0,
             "stereo-link": 100.0,
-            "threshold": -12.0
+            "threshold": -10.0
         },
         "multiband_compressor#0": {
             "band0": {
@@ -641,7 +641,7 @@
             "side-balance": 0.0,
             "side-level": 0.0,
             "softclip": true,
-            "stereo-base": 0.4499999999999995,
+            "stereo-base": 0.25,
             "stereo-phase": 0.0
         }
     }

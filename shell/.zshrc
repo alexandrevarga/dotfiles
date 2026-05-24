@@ -72,3 +72,27 @@ alias go_atomic='setfont latarcyrheb-sun32 && sudo systemctl isolate multi-user.
 
 # Added by Antigravity CLI installer
 export PATH="/home/alexandre/.local/bin:$PATH"
+
+# =====================================================================
+# AGY WORKFLOW - SINCRONIZAÇÃO DE CLIPBOARD WAYLAND NO TMUX
+# =====================================================================
+# 1. Função que envia as variáveis de tela ao iniciar/anexar o tmux
+tmux() {
+    if [ -n "$WAYLAND_DISPLAY" ]; then
+        command tmux set-environment -g WAYLAND_DISPLAY "$WAYLAND_DISPLAY" 2>/dev/null
+    fi
+    if [ -n "$DBUS_SESSION_BUS_ADDRESS" ]; then
+        command tmux set-environment -g DBUS_SESSION_BUS_ADDRESS "$DBUS_SESSION_BUS_ADDRESS" 2>/dev/null
+    fi
+    if [ -n "$XDG_RUNTIME_DIR" ]; then
+        command tmux set-environment -g XDG_RUNTIME_DIR "$XDG_RUNTIME_DIR" 2>/dev/null
+    fi
+    command tmux "$@"
+}
+
+# 2. Importa as variáveis de tela para os terminais rodando dentro do Tmux
+if [ -n "$TMUX" ]; then
+    eval $(tmux show-environment -s WAYLAND_DISPLAY 2>/dev/null)
+    eval $(tmux show-environment -s DBUS_SESSION_BUS_ADDRESS 2>/dev/null)
+    eval $(tmux show-environment -s XDG_RUNTIME_DIR 2>/dev/null)
+fi

@@ -1,0 +1,21 @@
+user: 8
+group: 8
+size:
+  none: 8
+  small: 8
+  medium: 8
+  large: 8
+date:
+  hour-old: 8
+  day-old: 8
+  older: 8
+permission:
+  read: 2
+  write: 3
+  exec: 1
+  exec-sticky: 5
+  no-access: 8
+  octal: 6
+  acl: 6
+  context: 6
+tree-edge: 8

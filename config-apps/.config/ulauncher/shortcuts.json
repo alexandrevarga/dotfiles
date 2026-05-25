@@ -28,5 +28,25 @@
         "is_default_search": true,
         "run_without_argument": false,
         "added": 1779655268.7229285
+    },
+    "github-search-custom": {
+        "id": "github-search-custom",
+        "name": "GitHub Search",
+        "keyword": "gh",
+        "cmd": "https://github.com/search?q=%s",
+        "icon": "",
+        "is_default_search": true,
+        "run_without_argument": false,
+        "added": 1779655268.0
+    },
+    "archwiki-search-custom": {
+        "id": "archwiki-search-custom",
+        "name": "Arch Wiki",
+        "keyword": "aw",
+        "cmd": "https://wiki.archlinux.org/index.php?search=%s",
+        "icon": "",
+        "is_default_search": true,
+        "run_without_argument": false,
+        "added": 1779655268.0
     }
 }

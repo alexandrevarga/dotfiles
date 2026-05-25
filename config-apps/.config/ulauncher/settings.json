@@ -7,6 +7,6 @@
     "render-on-screen": "default-monitor",
     "show-indicator-icon": true,
     "show-recent-apps": "0",
-    "terminal-command": "",
+    "terminal-command": "ptyxis --",
     "theme-name": "dark"
 }

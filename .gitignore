@@ -17,3 +17,17 @@ logs/
 Crashpad/
 Crash Reports/
 *.dmp
+
+# Stow & Local State
+Session Storage/
+WebStorage/
+VideoDecodeStats/
+User/History/
+User/workspaceStorage/
+User/globalStorage/
+*.vscdb
+*.vscdb.backup
+.org.chromium.*
+
+# Gemini Sessions (Data)
+sessions/

@@ -9,22 +9,51 @@ echo "🚀 [AGY] Iniciando otimização de Foco Nativo para Wayland..."
 gsettings set org.gnome.desktop.wm.keybindings switch-input-source "[]"
 gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "[]"
 
-# Limpa o custom0 antigo para evitar duplicatas ou conflitos
+# Desativa o atalho padrão de Logout do GNOME para evitar colisão com o Reboot instantâneo
+gsettings set org.gnome.settings-daemon.plugins.media-keys logout "[]"
+
 # Limpa o custom antigo para evitar conflitos
 gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "[]"
 
 # 2. Configura os atalhos customizados do Gnome (Necessário para Wayland)
 # custom0: Ulauncher (Ctrl+Space)
-# custom1: Clipboard Image to Text Path Converter (Super+I)
-gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']"
+# custom1: Clipboard Image Converter (Super+I)
+# custom2: Suspender/Sleep (Ctrl+Pause)
+# custom3: Hibernar/Hibernate (Ctrl+Shift+Pause)
+# custom4: Reiniciar Instantâneo (Ctrl+Alt+Delete)
+# custom5: Desligar Instantâneo (Ctrl+Alt+End)
+gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/']"
 
+# custom0: Launch Ulauncher
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name "Launch Ulauncher"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command "ulauncher-toggle"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding "<Primary>space"
 
+# custom1: Clipboard Image to Path
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ name "Convert Clipboard Image to Path"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ command "/home/alexandre/.local/bin/img_to_path.sh"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ binding "<Super>i"
+
+# custom2: Suspender / Sleep
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/ name "Suspender (Sleep)"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/ command "systemctl suspend"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/ binding "<Primary>Pause"
+
+# custom3: Hibernar / Hibernate
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/ name "Hibernar (Hibernate)"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/ command "systemctl hibernate"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/ binding "<Primary><Shift>Pause"
+
+# custom4: Reiniciar Instantâneo
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/ name "Reiniciar Instantaneo"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/ command "systemctl reboot"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/ binding "<Primary><Alt>Delete"
+
+# custom5: Desligar Instantâneo
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/ name "Desligar Instantaneo"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/ command "systemctl poweroff"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/ binding "<Primary><Alt>End"
+
 
 # 3. Rearranjo do Dock para respeitar o limite de 9 favoritos do Gnome
 # Movemos o EasyEffects da posição 12 para a posição 8 (Obsidian vai para a 12ª)
@@ -43,8 +72,12 @@ gsettings set org.gnome.shell.keybindings switch-to-application-3 "['<Super>b']"
 # [Favorito 4] Telegram ➔ Super+T (Workspace 5)
 gsettings set org.gnome.shell.keybindings switch-to-application-4 "['<Super>t']"
 
+# [Favorito 7] Stremio ➔ Super+S (Workspace 7)
+gsettings set org.gnome.shell.keybindings switch-to-application-7 "['<Super>s']"
+
 # [Favorito 8] EasyEffects ➔ Super+E (Workspace 8)
 gsettings set org.gnome.shell.keybindings switch-to-application-8 "['<Super>e']"
+
 
 # 5. Instalação e ativação da extensão NoAnnoyance v2 via GitHub (Wayland/Gnome 50 Native)
 echo "📦 [AGY] Instalando extensão Gnome: NoAnnoyance v2 (BjoernDaase)..."

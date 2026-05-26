@@ -34,4 +34,6 @@ sessions/
 cli/.config/gemini/sessions/
 
 # Absolute Blocks for IDE State
-cli/.config/Antigravity/
+cli/.config/Antigravity/*
+!cli/.config/Antigravity/agy.md
+

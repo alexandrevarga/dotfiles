@@ -54,7 +54,8 @@ fi
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#9ca3af"
 # Force default typed text to be bright crisp grey instead of terminal dim grey
 typeset -A ZSH_HIGHLIGHT_STYLES
-ZSH_HIGHLIGHT_STYLES[default]="fg=#d1d5db"
+ZSH_HIGHLIGHT_STYLES[default]="fg=#ffffff,bold"
+ZSH_HIGHLIGHT_STYLES[path]="fg=#ffffff,underline"
 ZSH_HIGHLIGHT_STYLES[command]="fg=#4ade80,bold"
 ZSH_HIGHLIGHT_STYLES[alias]="fg=#4ade80,bold"
 ZSH_HIGHLIGHT_STYLES[builtin]="fg=#4ade80,bold"

@@ -9,3 +9,12 @@ date:
   hour-old: 28
   day-old: 29
   older: 23
+permission:
+  read: 242
+  write: 242
+  exec: 160
+  exec-sticky: 160
+  no-access: 236
+  octal: 242
+  acl: 242
+  context: 242

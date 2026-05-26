@@ -1,0 +1,40 @@
+#!/bin/bash
+# =====================================================================
+# SRE WORKSPACE - TMUX DEVELOPMENT SESSION INITIALIZER (HYBRID EDITION)
+# =====================================================================
+
+SESSION_NAME="Development"
+
+# Lógica Híbrida: Se estiver na Home (boot), vai para ~/Projects.
+START_DIR="$PWD"
+if [ "$START_DIR" = "$HOME" ]; then
+    START_DIR="$HOME/Projects"
+fi
+
+# Garante que o diretório alvo existe
+mkdir -p "$START_DIR"
+
+# Verifica se a sessão já existe
+tmux has-session -t "$SESSION_NAME" 2>/dev/null
+
+if [ $? -ne 0 ]; then
+    # Cria a sessão com a Janela 1 limpa apontando para START_DIR
+    tmux new-session -d -s "$SESSION_NAME" -n "temp" -c "$START_DIR"
+    
+    # Cria a Janela 2: "Tools" estática apontando para START_DIR
+    tmux new-window -t "$SESSION_NAME:2" -n "Tools" -c "$START_DIR"
+    
+    # Divide a Janela 2 (Tools) na proporção de SRE vazia:
+    tmux split-window -h -t "$SESSION_NAME:2.1" -p 30 -c "$START_DIR"
+    tmux split-window -v -t "$SESSION_NAME:2.2" -p 50 -c "$START_DIR"
+    
+    # Define o nome inicial da Janela 1 baseado na pasta
+    DIR_NAME=$(basename "$START_DIR")
+    tmux rename-window -t "$SESSION_NAME:1" "$DIR_NAME"
+    
+    # Foca na Janela 1 ao iniciar
+    tmux select-window -t "$SESSION_NAME:1"
+fi
+
+# Acopla na sessão mestre
+tmux attach-session -t "$SESSION_NAME"

@@ -51,10 +51,13 @@ fi
 
 # 7.1 Zsh Brightness Hack (Decoupling from Ghostty)
 # Force autosuggestions to be a legible muted blue/grey instead of terminal dim grey
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#73869c"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#9ca3af"
 # Force default typed text to be bright crisp grey instead of terminal dim grey
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[default]="fg=#d1d5db"
+ZSH_HIGHLIGHT_STYLES[command]="fg=#4ade80,bold"
+ZSH_HIGHLIGHT_STYLES[alias]="fg=#4ade80,bold"
+ZSH_HIGHLIGHT_STYLES[builtin]="fg=#4ade80,bold"
 
 
 # 8. Tmux Wayland Sync

@@ -48,6 +48,14 @@ if [ -f "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
     source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
+# 7.1 Zsh Brightness Hack (Decoupling from Ghostty)
+# Force autosuggestions to be a legible muted blue/grey instead of terminal dim grey
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#73869c"
+# Force default typed text to be bright crisp grey instead of terminal dim grey
+typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[default]="fg=#d1d5db"
+
+
 # 8. Tmux Wayland Sync
 tmux() {
     if [ -n "$WAYLAND_DISPLAY" ]; then

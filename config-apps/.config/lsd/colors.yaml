@@ -1,0 +1,34 @@
+user: '#6b5c46'
+group: '#564a38'
+size:
+  none: '#4b5563'
+  small: '#8c7d62'
+  medium: '#8c7d62'
+  large: '#b07d35'
+date:
+  hour-old: '#5f8768'
+  day-old: '#577c5f'
+  older: '#46644d'
+permission:
+  read: '#577c5f'
+  write: '#a27331'
+  exec: '#bc5454'
+  exec-sticky: '#9453c4'
+  no-access: '#4b5563'
+  octal: '#49a4b5'
+  acl: '#49a4b5'
+  context: '#49a4b5'
+symlink:
+  default: '#49a4b5'
+  broken: '#bc5454'
+  missing-target: '#bc5454'
+file-type:
+  file:
+    exec: '#bc5454'
+  dir: '#0099ff'
+  pipe: '#a27331'
+  symlink: '#49a4b5'
+  block-device: '#a27331'
+  char-device: '#a27331'
+  socket: '#9453c4'
+  special: '#a27331'

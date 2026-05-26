@@ -18,17 +18,4 @@ permission:
   octal: 73
   acl: 73
   context: 73
-symlink:
-  default: 73
-  broken: 131
-  missing-target: 131
-file-type:
-  file:
-    exec: 131
-  dir: 33
-  pipe: 130
-  symlink: 73
-  block-device: 130
-  char-device: 130
-  socket: 97
-  special: 130
+

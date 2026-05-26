@@ -60,15 +60,17 @@ theme[cpu_start]="#1a6b3a"
 theme[cpu_mid]="#4ade80"
 theme[cpu_end]="#00afff"
 
-# Mem/Disk free meter — GREEN (free space = healthy, keep it green)
-theme[free_start]="#166534"
-theme[free_mid]="#15803d"
-theme[free_end]="#4ade80"
+# Mem/Disk free meter (AND Disk Read IO Graph)
+# Start color MUST be bright because idle disks only show the start color
+theme[free_start]="#22c55e"
+theme[free_mid]="#4ade80"
+theme[free_end]="#86efac"
 
-# Mem/Disk cached meter — PURPLE (kernel-managed, informational, distinct from cyan)
-theme[cached_start]="#4a1d8c"
-theme[cached_mid]="#7c3aed"
-theme[cached_end]="#b97bed"
+# Mem/Disk cached meter (AND Disk Write IO Graph)
+# Start color MUST be bright because idle disks only show the start color
+theme[cached_start]="#8b5cf6"
+theme[cached_mid]="#a855f7"
+theme[cached_end]="#c084fc"
 
 # Mem/Disk available meter — CYAN (available = ready to use, cold & calm)
 theme[available_start]="#155e75"

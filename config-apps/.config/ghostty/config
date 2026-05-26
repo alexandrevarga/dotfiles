@@ -1,6 +1,6 @@
 # Custom Balanced SRE Palette (Fusion with Ptyxis Font)
 background = 121212
-foreground = c5c5c5
+foreground = 9e9e9e
 cursor-color = 00ffff
 cursor-style = block
 cursor-style-blink = false
@@ -21,7 +21,7 @@ palette = 11=#fbbf24
 palette = 12=#00afff
 palette = 13=#b97bed
 palette = 14=#3ebcd4
-palette = 15=#c5c5c5
+palette = 15=#9e9e9e
 
 window-padding-x = 10
 window-padding-y = 10

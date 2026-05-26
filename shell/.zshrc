@@ -32,6 +32,7 @@ export EDITOR=nano
 force_color_prompt=yes
 
 # 6. Aliases
+export LS_COLORS="fi=38;5;251"
 alias ls='lsd --color=auto'
 alias ll='lsd -lah --color=auto'
 alias la='lsd -A --color=auto'

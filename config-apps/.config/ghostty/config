@@ -28,6 +28,7 @@ window-padding-y = 10
 window-decoration = true
 window-save-state = always
 class = com.mitchellh.ghostty
+gtk-single-instance = true
 
 # Font
 font-family = "FiraCode Nerd Font Mono"

@@ -10,11 +10,11 @@ date:
   day-old: 74
   older: 60
 permission:
-  read: 242
-  write: 242
+  read: 246
+  write: 246
   exec: 160
   exec-sticky: 160
   no-access: 236
-  octal: 242
-  acl: 242
-  context: 242
+  octal: 246
+  acl: 246
+  context: 246

@@ -60,25 +60,25 @@ theme[cpu_start]="#1a6b3a"
 theme[cpu_mid]="#4ade80"
 theme[cpu_end]="#00afff"
 
-# Mem/Disk free meter — green spectrum (free = good), brighter start for IO visibility
+# Mem/Disk free meter — GREEN (free space = healthy, keep it green)
 theme[free_start]="#166534"
-theme[free_mid]="#16a34a"
+theme[free_mid]="#15803d"
 theme[free_end]="#4ade80"
 
-# Mem/Disk cached meter — teal/cyan (cold, informational), brighter start
-theme[cached_start]="#155e75"
-theme[cached_mid]="#0891b2"
-theme[cached_end]="#3ebcd4"
+# Mem/Disk cached meter — PURPLE (kernel-managed, informational, distinct from cyan)
+theme[cached_start]="#4a1d8c"
+theme[cached_mid]="#7c3aed"
+theme[cached_end]="#b97bed"
 
-# Mem/Disk available meter — muted blue (neutral)
-theme[available_start]="#1e3a5f"
-theme[available_mid]="#2563eb"
-theme[available_end]="#60a5fa"
+# Mem/Disk available meter — CYAN (available = ready to use, cold & calm)
+theme[available_start]="#155e75"
+theme[available_mid]="#0891b2"
+theme[available_end]="#22d3ee"
 
-# Mem/Disk used meter — blue(calm)→blue-mid(ok)→red(critical)
-# mid is at 50% — keeping it blue-neutral so 46% RAM doesn't alarm
+# Mem/Disk used meter — BLUE(calm)→ORANGE(warning)→RED(critical)
+# mid kicks in at 50%, so normal usage stays blue
 theme[used_start]="#1e3a5f"
-theme[used_mid]="#2563eb"
+theme[used_mid]="#d97706"
 theme[used_end]="#dc2626"
 
 # Download graph — bright cyan (disk Read visibility boosted)

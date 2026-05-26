@@ -1,14 +1,14 @@
-user: '#6b5c46'
-group: '#564a38'
+user: '#594c39'
+group: '#4d4130'
 size:
   none: '#4b5563'
-  small: '#8c7d62'
-  medium: '#8c7d62'
-  large: '#b07d35'
+  small: '#6d614a'
+  medium: '#6d614a'
+  large: '#8c7d62'
 date:
-  hour-old: '#5f8768'
-  day-old: '#577c5f'
-  older: '#46644d'
+  hour-old: '#486950'
+  day-old: '#3f5c46'
+  older: '#364f3c'
 permission:
   read: '#577c5f'
   write: '#a27331'

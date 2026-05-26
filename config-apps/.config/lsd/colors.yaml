@@ -1,14 +1,14 @@
 user: 144
 group: 236
 size:
-  none: 238
-  small: 242
-  medium: 246
-  large: 226
+  none: 236
+  small: 240
+  medium: 245
+  large: 250
 date:
-  hour-old: 66
-  day-old: 60
-  older: 59
+  hour-old: 117
+  day-old: 74
+  older: 60
 permission:
   read: 242
   write: 242

@@ -3,7 +3,7 @@
 # =====================================================================
 
 # 1. Prompt Initialization (Oh-My-Posh)
-eval "$(oh-my-posh init zsh --config ~/.poshthemes/paradox.omp.json)"
+eval "$(oh-my-posh init zsh --config ~/Projects/dotfiles/cli/.config/oh-my-posh/paradox.omp.json)"
 
 # 2. History Settings
 HISTFILE=~/.zhistory

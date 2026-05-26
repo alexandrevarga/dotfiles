@@ -1,0 +1,13 @@
+session_name: Development
+start_directory: ~/Projects
+
+windows:
+  - window_name: Projects
+    panes:
+      - shell_command: zsh
+  - window_name: Tools
+    layout: d6af,145x36,0,0{100x36,0,0,8,44x36,101,0[44x18,101,0,9,44x17,101,19,10]}
+    panes:
+      - shell_command: zsh
+      - shell_command: zsh
+      - shell_command: zsh

@@ -31,3 +31,7 @@ User/globalStorage/
 
 # Gemini Sessions (Data)
 sessions/
+cli/.config/gemini/sessions/
+
+# Absolute Blocks for IDE State
+cli/.config/Antigravity/

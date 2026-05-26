@@ -1,13 +1,13 @@
-user: 238
-group: 238
+user: 94
+group: 94
 size:
   none: 236
-  small: 239
-  medium: 239
-  large: 241
+  small: 101
+  medium: 101
+  large: 137
 date:
   hour-old: 65
-  day-old: 23
+  day-old: 28
   older: 22
 permission:
   read: 65

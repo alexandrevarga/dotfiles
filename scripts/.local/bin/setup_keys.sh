@@ -57,7 +57,7 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/or
 
 # 3. Rearranjo do Dock para respeitar o limite de 9 favoritos do Gnome
 # Movemos o EasyEffects da posição 12 para a posição 8 (Obsidian vai para a 12ª)
-gsettings set org.gnome.shell favorite-apps "['org.gnome.Ptyxis.desktop', 'code-insiders.desktop', 'one.ablaze.floorp.desktop', 'org.telegram.desktop.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.TextEditor.desktop', 'org.gnome.Software.desktop', 'com.github.wwmm.easyeffects.desktop', 'com.todoist.Todoist.desktop', 'com.heroicgameslauncher.hgl.desktop', 'com.stremio.Stremio.desktop', 'md.obsidian.Obsidian.desktop']"
+gsettings set org.gnome.shell favorite-apps "['com.mitchellh.ghostty.desktop', 'code-insiders.desktop', 'one.ablaze.floorp.desktop', 'org.telegram.desktop.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.TextEditor.desktop', 'org.gnome.Software.desktop', 'com.github.wwmm.easyeffects.desktop', 'com.todoist.Todoist.desktop', 'com.heroicgameslauncher.hgl.desktop', 'com.stremio.Stremio.desktop', 'md.obsidian.Obsidian.desktop']"
 
 # 4. Mapeamento Nativo 'switch-to-application' (Foco + Troca de Workspace Automática)
 # [Favorito 1] Terminal ➔ Super+Enter (Workspace 1)

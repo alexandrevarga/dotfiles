@@ -26,6 +26,7 @@ palette = 15=#9e9e9e
 window-padding-x = 10
 window-padding-y = 10
 window-decoration = true
+window-save-state = always
 
 # Font
 font-family = "FiraCode Nerd Font Mono"

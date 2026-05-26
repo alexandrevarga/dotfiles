@@ -38,8 +38,8 @@ theme[proc_misc]="#7c5da0"
 # CPU box outline — AGY Cyan, primary observability element
 theme[cpu_box]="#00afff"
 
-# Memory/disks box outline — Warm Teal/Orange, distinct from CPU's cold cyan
-theme[mem_box]="#0d9488"
+# Memory/disks box outline — AGY Orange, clearly distinct from CPU cyan and Net purple
+theme[mem_box]="#f97316"
 
 # Net up/down box outline — Purple, network = exotic/rare concern
 theme[net_box]="#b97bed"
@@ -75,21 +75,21 @@ theme[available_start]="#1e3a5f"
 theme[available_mid]="#2563eb"
 theme[available_end]="#60a5fa"
 
-# Mem/Disk used meter — green(healthy)→orange(warning)→red(critical)
-# So 49% RAM used doesn't look like an emergency
-theme[used_start]="#166534"
-theme[used_mid]="#ea580c"
+# Mem/Disk used meter — blue(calm)→blue-mid(ok)→red(critical)
+# mid is at 50% — keeping it blue-neutral so 46% RAM doesn't alarm
+theme[used_start]="#1e3a5f"
+theme[used_mid]="#2563eb"
 theme[used_end]="#dc2626"
 
-# Download graph — cyan spectrum (brighter start for disk IO visibility)
-theme[download_start]="#0e7490"
-theme[download_mid]="#06b6d4"
-theme[download_end]="#3ebcd4"
+# Download graph — bright cyan (disk Read visibility boosted)
+theme[download_start]="#0891b2"
+theme[download_mid]="#22d3ee"
+theme[download_end]="#67e8f9"
 
-# Upload graph — purple spectrum (brighter start for disk IO visibility)
-theme[upload_start]="#6b21a8"
-theme[upload_mid]="#9333ea"
-theme[upload_end]="#b97bed"
+# Upload graph — bright purple (disk Write visibility boosted)
+theme[upload_start]="#7c3aed"
+theme[upload_mid]="#a855f7"
+theme[upload_end]="#d8b4fe"
 
 # Process list gradient — mint (active) fading to dark (idle/background)
 theme[process_start]="#4ade80"

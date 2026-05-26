@@ -14,8 +14,8 @@ theme[main_fg]="#c5c8c6"
 # Title color for boxes — crisp white, draws the eye to section headers
 theme[title]="#e8e8e8"
 
-# Highlight color for keyboard shortcuts — AGY Cyan "Gente Volta"
-theme[hi_fg]="#00afff"
+# Highlight color for keyboard shortcuts — slightly dimmed so box borders (cpu_box) dominate
+theme[hi_fg]="#0078b8"
 
 # Background color of selected item in processes box
 theme[selected_bg]="#1e3a4a"
@@ -38,8 +38,8 @@ theme[proc_misc]="#7c5da0"
 # CPU box outline — AGY Cyan, primary observability element
 theme[cpu_box]="#00afff"
 
-# Memory/disks box outline — Teal/Ice, cold analytical color
-theme[mem_box]="#3ebcd4"
+# Memory/disks box outline — Warm Teal/Orange, distinct from CPU's cold cyan
+theme[mem_box]="#0d9488"
 
 # Net up/down box outline — Purple, network = exotic/rare concern
 theme[net_box]="#b97bed"
@@ -81,14 +81,14 @@ theme[used_start]="#166534"
 theme[used_mid]="#ea580c"
 theme[used_end]="#dc2626"
 
-# Download graph — cyan spectrum (data coming in = cool)
-theme[download_start]="#164e63"
-theme[download_mid]="#0891b2"
+# Download graph — cyan spectrum (brighter start for disk IO visibility)
+theme[download_start]="#0e7490"
+theme[download_mid]="#06b6d4"
 theme[download_end]="#3ebcd4"
 
-# Upload graph — purple spectrum (data going out = active/warm)
-theme[upload_start]="#4a1d8c"
-theme[upload_mid]="#7c3aed"
+# Upload graph — purple spectrum (brighter start for disk IO visibility)
+theme[upload_start]="#6b21a8"
+theme[upload_mid]="#9333ea"
 theme[upload_end]="#b97bed"
 
 # Process list gradient — mint (active) fading to dark (idle/background)

@@ -1,10 +1,10 @@
-user: '#594c39'
-group: '#4d4130'
+user: '#3a3630'
+group: '#3a3630'
 size:
-  none: '#4b5563'
-  small: '#6d614a'
-  medium: '#6d614a'
-  large: '#8c7d62'
+  none: '#333333'
+  small: '#454039'
+  medium: '#454039'
+  large: '#454039'
 date:
   hour-old: '#486950'
   day-old: '#3f5c46'

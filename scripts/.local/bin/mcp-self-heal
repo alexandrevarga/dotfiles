@@ -1,0 +1,38 @@
+#!/bin/bash
+# =====================================================================
+# SRE MCP SELF-HEALING DAEMON - AUTOMATIC RECOVERY WITH RATE LIMITING
+# =====================================================================
+
+LOG_DIR="$HOME/.config/gemini/logs"
+LOG_FILE="$LOG_DIR/mcp_self_heal.log"
+LOCK_FILE="$LOG_DIR/mcp_self_heal.lock"
+LOCK_TTL=3600 # 1 hour in seconds
+
+mkdir -p "$LOG_DIR"
+
+# Rate Limiting: Avoid running multiple checks concurrently or spamming uv
+if [ -f "$LOCK_FILE" ]; then
+    LAST_RUN=$(stat -c %Y "$LOCK_FILE")
+    NOW=$(date +%s)
+    AGE=$((NOW - LAST_RUN))
+    if [ "$AGE" -lt "$LOCK_TTL" ]; then
+        exit 0 # Exit quietly, skip check to save CPU/disk cycles
+    fi
+fi
+
+# Touch the lock file to update the last run timestamp
+touch "$LOCK_FILE"
+
+# Active Health Check: Is the binary functional and compiling correctly?
+if ! command -v linux-mcp-server >/dev/null 2>&1 || ! linux-mcp-server --help >/dev/null 2>&1; then
+    echo "$(date) | WARNING: linux-mcp-server is broken or missing. Initiating self-healing..." >> "$LOG_FILE"
+    
+    # Run the force-install and capture full outputs for auditing
+    if uv tool install --force linux-mcp-server >> "$LOG_FILE" 2>&1; then
+        echo "$(date) | SUCCESS: linux-mcp-server successfully recovered." >> "$LOG_FILE"
+        notify-send "MCP Self-Healing" "linux-mcp-server recovered successfully!" --icon=dialog-information
+    else
+        echo "$(date) | CRITICAL: Self-healing failed. Check network or uv logs." >> "$LOG_FILE"
+        notify-send "⚠️ MCP Self-Healing FAILED" "Check detailed logs at $LOG_FILE" --icon=dialog-error
+    fi
+fi

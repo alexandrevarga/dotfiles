@@ -40,10 +40,6 @@ cli/.config/Antigravity/*
 cli/.config/Antigravity/User/*
 !cli/.config/Antigravity/User/settings.json
 
-# Local Workspace Symlinks
-/agy.md
-/.gemini.md
-/GEMINI.md
 
 
 

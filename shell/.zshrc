@@ -27,6 +27,18 @@ setopt CORRECT
 bindkey '\e[A' history-search-backward
 bindkey '\e[B' history-search-forward
 
+# Force shell cursor word jumps with Ctrl+Left/Right (ANSI Escape translation)
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+# Fallback for simpler xterm emulators
+bindkey '^[[5D' backward-word
+bindkey '^[[5C' forward-word
+
+# Map the physical Delete key to delete character forward
+bindkey '^[[3~' delete-char
+
+
+
 # 5. Environment Variables (Interactive specific)
 export EDITOR=nano
 force_color_prompt=yes

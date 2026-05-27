@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=Fractional Fix
+Exec=sh -c "gsettings set org.gnome.mutter experimental-features \"['scale-monitor-framebuffer']\" && sleep 2 && gsettings set org.gnome.desktop.interface scaling-factor 1"
+X-GNOME-Autostart-enabled=true

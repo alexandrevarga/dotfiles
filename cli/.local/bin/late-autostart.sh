@@ -53,32 +53,43 @@
 
     log_msg "Starting late-autostart orchestrator..."
 
-    # 1. Launch Ghostty immediately (highest priority)
-    log_msg "Launching Ghostty (background)..."
-    env -u DESKTOP_STARTUP_ID ghostty -e sh -c 'tmux attach || tmux' &
+    # 1. Initialize tmux session via tmuxp only if it does not already exist (avoids collisions with continuum restore)
+    log_msg "Checking tmux sessions..."
+    tmux start-server
+    sleep 0.2
+    if ! tmux has-session -t Development 2>/dev/null; then
+        log_msg "Tmux session 'Development' not found. Loading via tmuxp (background)..."
+        tmuxp load -y -d development &
+    else
+        log_msg "Tmux session 'Development' was successfully restored by Continuum."
+    fi
 
-    # 2. Wait for CPU to settle before Ulauncher
+    # 2. Launch Ghostty immediately, waiting for the session to be ready (highest priority)
+    log_msg "Launching Ghostty (background)..."
+    env -u DESKTOP_STARTUP_ID ghostty -e sh -c 'i=0; while ! tmux has-session -t Development 2>/dev/null && [ $i -lt 30 ]; do sleep 0.1; i=$((i+1)); done; tmux attach-session -t Development || tmux new-session -s Development' &
+
+    # 3. Wait for CPU to settle before Ulauncher
     wait_for_system_to_settle "Ulauncher"
 
-    # 3. Launch Ulauncher
+    # 4. Launch Ulauncher
     log_msg "Launching Ulauncher..."
     /usr/bin/ulauncher --hide-window &
 
-    # 4. Wait for CPU to settle before VS Code
+    # 5. Wait for CPU to settle before VS Code
     wait_for_system_to_settle "VS Code"
 
-    # 5. Launch VS Code
+    # 6. Launch VS Code
     log_msg "Launching VS Code Insiders..."
     env -u DESKTOP_STARTUP_ID code-insiders &
 
-    # 6. Wait for CPU to settle before Floorp
+    # 7. Wait for CPU to settle before Floorp
     wait_for_system_to_settle "Floorp"
 
-    # 7. Launch Floorp
+    # 8. Launch Floorp
     log_msg "Launching Floorp..."
     env -u DESKTOP_STARTUP_ID flatpak run one.ablaze.floorp &
 
-    # 8. Start the MCP Self-Healing Daemon (at the end, when system is idle)
+    # 9. Start the MCP Self-Healing Daemon (at the end, when system is idle)
     log_msg "Running MCP Self-Healing check..."
     mcp-self-heal &
 

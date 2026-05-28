@@ -61,6 +61,10 @@
     tmuxp load -y -d development
     log_msg "tmux session initialized."
 
+    # 2.1. Launch Ghostty and attach to the newly created Development session
+    log_msg "Launching Ghostty attached to tmux..."
+    env -u DESKTOP_STARTUP_ID ghostty -e tmux attach-session -t Development &
+
     # 3. Wait for CPU to settle before VS Code
     wait_for_system_to_settle "VS Code"
 

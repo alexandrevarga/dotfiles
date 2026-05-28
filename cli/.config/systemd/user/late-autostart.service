@@ -1,0 +1,11 @@
+[Unit]
+Description=Late Autostart Applications (VS Code & Floorp)
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/home/alexandre/.local/bin/late-autostart.sh
+Restart=no
+
+[Install]
+WantedBy=graphical-session.target

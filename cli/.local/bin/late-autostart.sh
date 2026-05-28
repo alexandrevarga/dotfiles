@@ -66,7 +66,7 @@
 
     # 2. Launch Ghostty immediately, waiting for the session to be ready (highest priority)
     log_msg "Launching Ghostty (background)..."
-    env -u DESKTOP_STARTUP_ID ghostty -e sh -c 'i=0; while ! tmux has-session -t Development 2>/dev/null && [ $i -lt 30 ]; do sleep 0.1; i=$((i+1)); done; tmux attach-session -t Development || tmux new-session -s Development' &
+    env -u DESKTOP_STARTUP_ID ghostty -e sh -c 'i=0; while ! tmux has-session -t Development 2>/dev/null && [ $i -lt 6 ]; do sleep 0.5; i=$((i+1)); done; tmux attach-session -t Development || tmux new-session -s Development' &
 
     # 3. Wait for CPU to settle before Ulauncher
     wait_for_system_to_settle "Ulauncher"

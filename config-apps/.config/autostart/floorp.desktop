@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=Floorp
-Exec=sh -c "sleep 1.5 && flatpak run one.ablaze.floorp"
+Exec=sh -c "sleep 4 && flatpak run one.ablaze.floorp"
 Icon=one.ablaze.floorp
 Comment=Start Floorp Browser on Login
 X-GNOME-Autostart-enabled=true

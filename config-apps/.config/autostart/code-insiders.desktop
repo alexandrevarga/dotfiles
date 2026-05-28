@@ -1,7 +1,8 @@
 [Desktop Entry]
 Type=Application
 Name=VS Code Insiders
-Exec=sh -c "(sleep 2 && code-insiders --disable-renderer-backgrounding --disable-backgrounding-occluded-windows) &"
+Exec=code-insiders --disable-renderer-backgrounding --disable-backgrounding-occluded-windows
 Icon=code-insiders
 Comment=Start VS Code Insiders on Login
 X-GNOME-Autostart-enabled=true
+X-GNOME-Autostart-Delay=2

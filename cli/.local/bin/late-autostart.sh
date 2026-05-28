@@ -3,8 +3,6 @@
 # Late autostart script using direct real-time hardware telemetry.
 # Dynamically reserves N-1 cores for GNOME Mutter, preventing boot lags.
 
-# Fork immediately to background to release the GNOME session manager (avoids grey screen)
-(
     LOG_FILE="$HOME/.local/state/late-autostart.log"
     mkdir -p "$(dirname "$LOG_FILE")"
 
@@ -103,4 +101,3 @@
     mcp-self-heal &
 
     log_msg "Orchestrator completed."
-) &

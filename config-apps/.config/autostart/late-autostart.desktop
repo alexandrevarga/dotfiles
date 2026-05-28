@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Late Autostart Orchestrator
-Exec=/home/alexandre/.local/bin/late-autostart.sh
-Icon=system-run
-Comment=Orchestrate heavy desktop apps after system settles
-X-GNOME-Autostart-enabled=true
-StartupNotify=false
-

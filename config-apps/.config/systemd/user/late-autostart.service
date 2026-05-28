@@ -1,0 +1,12 @@
+[Unit]
+Description=Late Autostart Orchestrator
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/home/alexandre/.local/bin/late-autostart.sh
+Restart=no
+
+[Install]
+WantedBy=graphical-session.target

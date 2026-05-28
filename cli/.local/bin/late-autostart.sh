@@ -1,37 +1,19 @@
 #!/usr/bin/env bash
 
-# Late autostart script with dynamic load-aware scheduling (feedback loop)
-# Helps prevent CPU spikes and graphical stutters in GNOME Mutter on boot.
+# Late autostart script using direct real-time hardware telemetry.
+# Dynamically reserves N-1 cores for GNOME Mutter, preventing boot lags.
 
 wait_for_system_to_settle() {
-    local target_idle_ratio=${1:-80}  # We want at least 80% of the initial baseline idle CPU
-    local max_iowait=${2:-5}         # Maximum disk I/O wait percentage
+    local max_iowait=5             # Maximum 5% disk I/O wait
     local sample_interval=0.5
-    local max_retries=20             # 10 seconds timeout limit
+    local max_retries=20           # 10s safety timeout
     local retries=0
 
-    # 1. Sample system idle baseline (0.5 seconds evaluation)
-    read -r _ user nice system idle iowait irq softirq steal _ < /proc/stat
-    local t1=$((user + nice + system + idle + iowait + irq + softirq + steal))
-    local i1=$idle
-    sleep 0.5
-    read -r _ user nice system idle iowait irq softirq steal _ < /proc/stat
-    local t2=$((user + nice + system + idle + iowait + irq + softirq + steal))
-    local i2=$idle
-    local dt=$((t2 - t1))
-    local di=$((i2 - i1))
-    if [ "$dt" -eq 0 ]; then dt=1; fi
-    local baseline_idle=$(( (di * 100) / dt ))
+    # Calculate dynamic target idle based on actual CPU cores
+    # We want at least N-1 cores to be 100% idle (Mutter protection)
+    local num_cores=$(nproc)
+    local target_idle=$(( 100 - (100 / num_cores) ))
 
-    # Calculate dynamic idle threshold relative to current boot load baseline
-    local dynamic_idle=$(( (baseline_idle * target_idle_ratio) / 100 ))
-
-    # Safety net: never drop target below 65% idle even under heavy background load
-    if [ "$dynamic_idle" -lt 65 ]; then
-        dynamic_idle=65
-    fi
-
-    # 2. Monitor load stability loop
     while [ $retries -lt $max_retries ]; do
         read -r _ user nice system idle iowait irq softirq steal _ < /proc/stat
         local prev_total=$((user + nice + system + idle + iowait + irq + softirq + steal))
@@ -51,8 +33,8 @@ wait_for_system_to_settle() {
         local cpu_idle=$(( (diff_idle * 100) / diff_total ))
         local cpu_iowait=$(( (diff_iowait * 100) / diff_total ))
 
-        # Active feedback-loop trigger condition
-        if [ "$cpu_idle" -ge "$dynamic_idle" ] && [ "$cpu_iowait" -le "$max_iowait" ]; then
+        # Evaluate against calculated physical resource constraints
+        if [ "$cpu_idle" -ge "$target_idle" ] && [ "$cpu_iowait" -le "$max_iowait" ]; then
             return 0
         fi
 
@@ -60,14 +42,20 @@ wait_for_system_to_settle() {
     done
 }
 
-# Wait 2 seconds for GNOME Shell display transitions and Overview animations to finish rendering
+# 1. Wait 2 seconds for GNOME Shell compositor to stabilize
 sleep 2
 
-# Launch VS Code Insiders (Workspace 2 candidate) with background occlusion bypass flags
-code-insiders --disable-renderer-backgrounding --disable-backgrounding-occluded-windows &
+# 2. Setup tmux session (tmuxp) in background asynchronously (decoupled from autostart)
+tmuxp load -d development &
 
-# Wait for system CPU and IO bar to settle before launching next heavy app
-wait_for_system_to_settle 80 5
+# 3. Wait for CPU to settle before next launch
+wait_for_system_to_settle
 
-# Launch Floorp Browser (Workspace 3 candidate)
+# 4. Spawn VS Code Insiders without GPU backgrounding crash flags
+code-insiders &
+
+# 5. Wait for VS Code to finish cold start
+wait_for_system_to_settle
+
+# 6. Spawn Floorp Browser
 flatpak run one.ablaze.floorp &

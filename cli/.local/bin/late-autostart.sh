@@ -53,17 +53,13 @@
 
     log_msg "Starting late-autostart orchestrator..."
 
-    # 1. Wait dynamically for GNOME Shell compositor and CPU to stabilize
-    wait_for_system_to_settle "GNOME Shell"
+    # 1. Initialize tmux session (tmuxp) in background immediately
+    log_msg "Initializing tmux session via tmuxp (background)..."
+    tmuxp load -y -d development &
 
-    # 2. Setup tmux session (tmuxp) synchronously (no '&', wait for creation)
-    log_msg "Initializing tmux session via tmuxp..."
-    tmuxp load -y -d development
-    log_msg "tmux session initialized."
-
-    # 2.1. Launch Ghostty and attach to the newly created Development session
-    log_msg "Launching Ghostty attached to tmux..."
-    env -u DESKTOP_STARTUP_ID ghostty -e tmux attach-session -t Development &
+    # 2. Launch Ghostty immediately, wait-looping for tmux session dynamically
+    log_msg "Launching Ghostty attached to tmux (background)..."
+    env -u DESKTOP_STARTUP_ID ghostty -e sh -c 'i=0; while ! tmux has-session -t Development 2>/dev/null && [ $i -lt 20 ]; do sleep 0.1; i=$((i+1)); done; tmux attach-session -t Development || tmux new-session -s Development' &
 
     # 3. Wait for CPU to settle before VS Code
     wait_for_system_to_settle "VS Code"

@@ -53,43 +53,52 @@
 
     log_msg "Starting late-autostart orchestrator..."
 
-    # 1. Initialize tmux session via tmuxp only if it does not already exist (avoids collisions with continuum restore)
-    log_msg "Checking tmux sessions..."
+    # 1. Start tmux server to trigger Continuum auto-restore
+    log_msg "Starting tmux server..."
     tmux start-server
-    sleep 0.2
+
+    # 2. Wait deterministically for tmux-resurrect restore process to complete
+    log_msg "Waiting for Continuum session restore to finish..."
+    while pgrep -f "tmux-resurrect/scripts/restore.sh" >/dev/null 2>&1; do
+        sleep 0.25
+    done
+    log_msg "Continuum restore completed."
+
+    # 3. Load via tmuxp only if the session was not restored
     if ! tmux has-session -t Development 2>/dev/null; then
-        log_msg "Tmux session 'Development' not found. Loading via tmuxp (background)..."
-        tmuxp load -y -d development &
+        log_msg "Development session not found. Loading via tmuxp (blocking wait)..."
+        tmuxp load -y -d development
+        log_msg "Tmuxp layout successfully loaded."
     else
-        log_msg "Tmux session 'Development' was successfully restored by Continuum."
+        log_msg "Development session successfully restored by Continuum."
     fi
 
-    # 2. Launch Ghostty immediately, waiting for the session to be ready (highest priority)
-    log_msg "Launching Ghostty (background)..."
-    env -u DESKTOP_STARTUP_ID ghostty -e sh -c 'i=0; while ! tmux has-session -t Development 2>/dev/null && [ $i -lt 6 ]; do sleep 0.5; i=$((i+1)); done; tmux attach-session -t Development || tmux new-session -s Development' &
+    # 4. Launch Ghostty attached directly (highest priority, session is guaranteed to exist)
+    log_msg "Launching Ghostty attached to Development session..."
+    env -u DESKTOP_STARTUP_ID ghostty -e tmux attach-session -t Development &
 
-    # 3. Wait for CPU to settle before Ulauncher
+    # 5. Wait for CPU to settle before Ulauncher
     wait_for_system_to_settle "Ulauncher"
 
-    # 4. Launch Ulauncher
+    # 6. Launch Ulauncher
     log_msg "Launching Ulauncher..."
     /usr/bin/ulauncher --hide-window &
 
-    # 5. Wait for CPU to settle before VS Code
+    # 7. Wait for CPU to settle before VS Code
     wait_for_system_to_settle "VS Code"
 
-    # 6. Launch VS Code
+    # 8. Launch VS Code
     log_msg "Launching VS Code Insiders..."
     env -u DESKTOP_STARTUP_ID code-insiders &
 
-    # 7. Wait for CPU to settle before Floorp
+    # 9. Wait for CPU to settle before Floorp
     wait_for_system_to_settle "Floorp"
 
-    # 8. Launch Floorp
+    # 10. Launch Floorp
     log_msg "Launching Floorp..."
     env -u DESKTOP_STARTUP_ID flatpak run one.ablaze.floorp &
 
-    # 9. Start the MCP Self-Healing Daemon (at the end, when system is idle)
+    # 11. Start the MCP Self-Healing Daemon (at the end, when system is idle)
     log_msg "Running MCP Self-Healing check..."
     mcp-self-heal &
 

@@ -3,59 +3,77 @@
 # Late autostart script using direct real-time hardware telemetry.
 # Dynamically reserves N-1 cores for GNOME Mutter, preventing boot lags.
 
-wait_for_system_to_settle() {
-    local max_iowait=5             # Maximum 5% disk I/O wait
-    local sample_interval=0.5
-    local max_retries=20           # 10s safety timeout
-    local retries=0
+# Fork immediately to background to release the GNOME session manager (avoids grey screen)
+(
+    LOG_FILE="$HOME/.local/state/late-autostart.log"
+    mkdir -p "$(dirname "$LOG_FILE")"
 
-    # Calculate dynamic target idle based on actual CPU cores
-    # We want at least N-1 cores to be 100% idle (Mutter protection)
-    local num_cores=$(nproc)
-    local target_idle=$(( 100 - (100 / num_cores) ))
+    log_msg() {
+        echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" >> "$LOG_FILE"
+    }
 
-    while [ $retries -lt $max_retries ]; do
-        read -r _ user nice system idle iowait irq softirq steal _ < /proc/stat
-        local prev_total=$((user + nice + system + idle + iowait + irq + softirq + steal))
-        local prev_idle=$idle
-        local prev_iowait=$iowait
+    wait_for_system_to_settle() {
+        local label="$1"
+        local max_iowait=15            # More lenient 15% disk I/O wait
+        local sample_interval=0.5
+        local max_retries=10           # 5s safety timeout
+        local retries=0
+        local target_idle=50           # More realistic 50% idle CPU
 
-        sleep "$sample_interval"
+        log_msg "Waiting for system to settle before: $label (Target Idle: ${target_idle}%, Max IOWait: ${max_iowait}%)"
 
-        read -r _ user nice system idle iowait irq softirq steal _ < /proc/stat
-        local total=$((user + nice + system + idle + iowait + irq + softirq + steal))
-        local diff_total=$((total - prev_total))
-        local diff_idle=$((idle - prev_idle))
-        local diff_iowait=$((iowait - prev_iowait))
+        while [ $retries -lt $max_retries ]; do
+            read -r _ user nice system idle iowait irq softirq steal _ < /proc/stat
+            local prev_total=$((user + nice + system + idle + iowait + irq + softirq + steal))
+            local prev_idle=$idle
+            local prev_iowait=$iowait
 
-        if [ "$diff_total" -eq 0 ]; then diff_total=1; fi
+            sleep "$sample_interval"
 
-        local cpu_idle=$(( (diff_idle * 100) / diff_total ))
-        local cpu_iowait=$(( (diff_iowait * 100) / diff_total ))
+            read -r _ user nice system idle iowait irq softirq steal _ < /proc/stat
+            local total=$((user + nice + system + idle + iowait + irq + softirq + steal))
+            local diff_total=$((total - prev_total))
+            local diff_idle=$((idle - prev_idle))
+            local diff_iowait=$((iowait - prev_iowait))
 
-        # Evaluate against calculated physical resource constraints
-        if [ "$cpu_idle" -ge "$target_idle" ] && [ "$cpu_iowait" -le "$max_iowait" ]; then
-            return 0
-        fi
+            if [ "$diff_total" -eq 0 ]; then diff_total=1; fi
 
-        retries=$((retries + 1))
-    done
-}
+            local cpu_idle=$(( (diff_idle * 100) / diff_total ))
+            local cpu_iowait=$(( (diff_iowait * 100) / diff_total ))
 
-# 1. Wait 2 seconds for GNOME Shell compositor to stabilize
-sleep 2
+            if [ "$cpu_idle" -ge "$target_idle" ] && [ "$cpu_iowait" -le "$max_iowait" ]; then
+                log_msg "System settled: idle=${cpu_idle}%, iowait=${cpu_iowait}% (took $((retries * 500))ms)"
+                return 0
+            fi
 
-# 2. Setup tmux session (tmuxp) in background asynchronously (decoupled from autostart)
-tmuxp load -d development &
+            retries=$((retries + 1))
+        done
+        log_msg "System did not settle within timeout: idle=${cpu_idle}%, iowait=${cpu_iowait}% (proceeding anyway)"
+    }
 
-# 3. Wait for CPU to settle before next launch
-wait_for_system_to_settle
+    log_msg "Starting late-autostart orchestrator..."
 
-# 4. Spawn VS Code Insiders without GPU backgrounding crash flags
-code-insiders &
+    # 1. Wait 2 seconds for GNOME Shell compositor to stabilize
+    sleep 2
 
-# 5. Wait for VS Code to finish cold start
-wait_for_system_to_settle
+    # 2. Setup tmux session (tmuxp) synchronously (no '&', wait for creation)
+    log_msg "Initializing tmux session via tmuxp..."
+    tmuxp load -y -d development
+    log_msg "tmux session initialized."
 
-# 6. Spawn Floorp Browser
-flatpak run one.ablaze.floorp &
+    # 3. Wait for CPU to settle before VS Code
+    wait_for_system_to_settle "VS Code"
+
+    # 4. Launch VS Code
+    log_msg "Launching VS Code Insiders..."
+    env -u DESKTOP_STARTUP_ID code-insiders &
+
+    # 5. Wait for CPU to settle before Floorp
+    wait_for_system_to_settle "Floorp"
+
+    # 6. Launch Floorp
+    log_msg "Launching Floorp..."
+    env -u DESKTOP_STARTUP_ID flatpak run one.ablaze.floorp &
+
+    log_msg "Orchestrator completed."
+) &

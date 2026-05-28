@@ -89,5 +89,4 @@ if [ -n "$TMUX" ]; then
     eval $(tmux show-environment -s XDG_RUNTIME_DIR 2>/dev/null)
 fi
 
-# 9. MCP Self-Healing Daemon (Async, Modular, Non-blocking)
-(mcp-self-heal) &!
+

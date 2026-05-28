@@ -53,27 +53,34 @@
 
     log_msg "Starting late-autostart orchestrator..."
 
-    # 1. Initialize tmux session (tmuxp) in background immediately
-    log_msg "Initializing tmux session via tmuxp (background)..."
-    tmuxp load -y -d development &
+    # 1. Launch Ghostty immediately (highest priority)
+    log_msg "Launching Ghostty (background)..."
+    env -u DESKTOP_STARTUP_ID ghostty -e sh -c 'tmux attach || tmux' &
 
-    # 2. Launch Ghostty immediately, wait-looping for tmux session dynamically
-    log_msg "Launching Ghostty attached to tmux (background)..."
-    env -u DESKTOP_STARTUP_ID ghostty -e sh -c 'i=0; while ! tmux has-session -t Development 2>/dev/null && [ $i -lt 20 ]; do sleep 0.1; i=$((i+1)); done; tmux attach-session -t Development || tmux new-session -s Development' &
+    # 2. Wait for CPU to settle before Ulauncher
+    wait_for_system_to_settle "Ulauncher"
 
-    # 3. Wait for CPU to settle before VS Code
+    # 3. Launch Ulauncher
+    log_msg "Launching Ulauncher..."
+    /usr/bin/ulauncher --hide-window &
+
+    # 4. Wait for CPU to settle before VS Code
     wait_for_system_to_settle "VS Code"
 
-    # 4. Launch VS Code
+    # 5. Launch VS Code
     log_msg "Launching VS Code Insiders..."
     env -u DESKTOP_STARTUP_ID code-insiders &
 
-    # 5. Wait for CPU to settle before Floorp
+    # 6. Wait for CPU to settle before Floorp
     wait_for_system_to_settle "Floorp"
 
-    # 6. Launch Floorp
+    # 7. Launch Floorp
     log_msg "Launching Floorp..."
     env -u DESKTOP_STARTUP_ID flatpak run one.ablaze.floorp &
+
+    # 8. Start the MCP Self-Healing Daemon (at the end, when system is idle)
+    log_msg "Running MCP Self-Healing check..."
+    mcp-self-heal &
 
     log_msg "Orchestrator completed."
 ) &

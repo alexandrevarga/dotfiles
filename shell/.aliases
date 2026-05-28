@@ -1,0 +1,15 @@
+# =====================================================================
+# AGY WORKFLOW - UNIVERSAL ALIASES
+# =====================================================================
+
+# Color & Icons (LSD Drop-in replacements)
+alias ls='lsd --color=auto'
+alias ll='lsd -lah --color=auto'
+alias la='lsd -A --color=auto'
+
+# Agy / Diagnostics
+alias gemini-debug='type -a gemini'
+
+# Fedora Atomic System Modes (Safe Power)
+alias go_atomic='setfont latarcyrheb-sun32 && sudo systemctl isolate multi-user.target'
+alias exit_atomic='sudo systemctl isolate graphical.target'

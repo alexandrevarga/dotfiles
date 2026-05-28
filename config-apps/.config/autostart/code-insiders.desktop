@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=VS Code Insiders
-Exec=code-insiders
+Exec=sh -c "sleep 3 && code-insiders"
 Icon=code-insiders
 Comment=Start VS Code Insiders on Login
 X-GNOME-Autostart-enabled=true

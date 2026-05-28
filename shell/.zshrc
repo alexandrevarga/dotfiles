@@ -43,14 +43,10 @@ bindkey '^[[3~' delete-char
 export EDITOR=nano
 force_color_prompt=yes
 
-# 6. Aliases
-export LS_COLORS="fi=38;5;251"
-alias ls='lsd --color=auto'
-alias ll='lsd -lah --color=auto'
-alias la='lsd -A --color=auto'
-alias gemini-debug='type -a gemini'
-alias go_atomic='setfont latarcyrheb-sun32 && sudo systemctl isolate multi-user.target'
-alias exit_atomic='sudo systemctl isolate graphical.target'
+# 6. Aliases (Modular Sourcing)
+if [ -f "$HOME/.aliases" ]; then
+    source "$HOME/.aliases"
+fi
 
 # 7. Plugins (Fail-Safe Loading)
 if [ -f "/usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
@@ -95,4 +91,3 @@ fi
 
 # 9. MCP Self-Healing Daemon (Async, Modular, Non-blocking)
 (mcp-self-heal) &!
-

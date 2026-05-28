@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=Ghostty
-Exec=ghostty -e tmuxp load -y development
+Exec=sh -c "sleep 0.5 && ghostty -e tmuxp load -y development"
 Icon=com.mitchellh.ghostty
 Comment=Start Ghostty Terminal on Login
 X-GNOME-Autostart-enabled=true

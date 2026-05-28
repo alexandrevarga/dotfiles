@@ -1,7 +1,8 @@
 [Desktop Entry]
 Type=Application
 Name=Ghostty
-Exec=ghostty -e sh -c "i=0; while [ \$\$i -lt 20 ]; do tmux has-session -t Development 2>/dev/null && break; sleep 0.5; i=\$\$((i+1)); done; tmux attach-session -t Development || tmux new-session -s Development"
+Exec=/usr/bin/ghostty
 Icon=com.mitchellh.ghostty
 Comment=Start Ghostty Terminal on Login
 X-GNOME-Autostart-enabled=false
+StartupNotify=false

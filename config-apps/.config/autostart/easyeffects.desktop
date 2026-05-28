@@ -5,3 +5,4 @@ Exec=flatpak run com.github.wwmm.easyeffects --gapplication-service
 Icon=com.github.wwmm.easyeffects
 Comment=Start EasyEffects Audio Service on Login
 X-GNOME-Autostart-enabled=true
+StartupNotify=false

@@ -53,8 +53,8 @@
 
     log_msg "Starting late-autostart orchestrator..."
 
-    # 1. Wait 2 seconds for GNOME Shell compositor to stabilize
-    sleep 2
+    # 1. Wait dynamically for GNOME Shell compositor and CPU to stabilize
+    wait_for_system_to_settle "GNOME Shell"
 
     # 2. Setup tmux session (tmuxp) synchronously (no '&', wait for creation)
     log_msg "Initializing tmux session via tmuxp..."

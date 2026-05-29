@@ -1,0 +1,384 @@
+[appindicator]
+icon-brightness=0.0
+icon-contrast=0.0
+icon-opacity=240
+icon-saturation=0.0
+icon-size=0
+
+[astra-monitor]
+compact-mode=false
+compact-mode-activation='both'
+compact-mode-start-expanded=false
+debug-mode=false
+experimental-features='[]'
+explicit-zero=false
+gpu-data='""'
+gpu-header-activity-bar-color1='rgba(29,172,214,1.0)'
+gpu-header-activity-graph-color1='rgba(29,172,214,1.0)'
+gpu-header-show=false
+gpu-indicators-order='["icon","activity bar","activity graph","activity percentage","memory bar","memory graph","memory percentage","memory value"]'
+gpu-main='""'
+headers-height=0
+headers-height-override=0
+memory-header-bars-color1='rgba(29,172,214,1.0)'
+memory-header-bars-color2='rgba(29,172,214,0.3)'
+memory-header-graph-color1='rgba(29,172,214,1.0)'
+memory-header-graph-color2='rgba(29,172,214,0.3)'
+memory-indicators-order='["icon","bar","graph","percentage","value","free"]'
+memory-menu-swap-color='rgba(29,172,214,1.0)'
+monitors-order='["processor","gpu","memory","storage","network","sensors"]'
+network-header-io-bars-color1='rgba(29,172,214,1.0)'
+network-header-io-bars-color2='rgba(214,29,29,1.0)'
+network-header-io-graph-color1='rgba(29,172,214,1.0)'
+network-header-io-graph-color2='rgba(214,29,29,1.0)'
+network-indicators-order='["icon","IO bar","IO graph","IO speed"]'
+network-menu-arrow-color1='rgba(29,172,214,1.0)'
+network-menu-arrow-color2='rgba(214,29,29,1.0)'
+panel-box='left'
+panel-box-order=1
+panel-margin-left=20
+panel-margin-right=0
+processor-header-bars-color1='rgba(29,172,214,1.0)'
+processor-header-bars-color2='rgba(214,29,29,1.0)'
+processor-header-graph-color1='rgba(29,172,214,1.0)'
+processor-header-graph-color2='rgba(214,29,29,1.0)'
+processor-indicators-order='["icon","bar","graph","percentage","frequency"]'
+processor-menu-gpu-color=''
+profiles='{"default":{"panel-margin-left":20,"sensors-header-tooltip-sensor2-digits":-1,"memory-update":3,"gpu-header-memory-graph-color1":"rgba(29,172,214,1.0)","panel-box":"left","memory-header-show":true,"network-header-tooltip-io":true,"processor-header-bars-color2":"rgba(214,29,29,1.0)","processor-header-icon-size":18,"storage-source-storage-io":"auto","sensors-header-tooltip-sensor4-name":"","storage-header-icon-color":"","network-source-public-ipv4":"https://api.ipify.org","storage-header-io-graph-color2":"rgba(214,29,29,1.0)","storage-header-io":false,"processor-menu-top-processes-percentage-core":true,"sensors-header-sensor1":"\\"\\"","processor-header-graph":true,"storage-header-graph-width":30,"network-header-bars":false,"processor-source-load-avg":"auto","network-menu-arrow-color1":"rgba(29,172,214,1.0)","network-source-top-processes":"auto","gpu-header-icon":true,"processor-menu-graph-breakdown":true,"storage-ignored":"\\"[]\\"","sensors-header-icon-custom":"","sensors-header-sensor2":"\\"\\"","network-header-icon-alert-color":"rgba(235, 64, 52, 1)","memory-header-tooltip-free":false,"storage-header-io-figures":2,"network-menu-arrow-color2":"rgba(214,29,29,1.0)","sensors-header-tooltip-sensor3-name":"","network-source-public-ipv6":"https://api6.ipify.org","monitors-order":"[\\"processor\\",\\"gpu\\",\\"memory\\",\\"storage\\",\\"network\\",\\"sensors\\"]","network-header-graph":true,"network-indicators-order":"[\\"icon\\",\\"IO bar\\",\\"IO graph\\",\\"IO speed\\"]","memory-header-percentage":false,"gpu-data":"\\"\\"","storage-header-bars":true,"processor-header-tooltip":true,"memory-menu-swap-color":"rgba(29,172,214,1.0)","storage-io-unit":"kB/s","memory-header-graph-width":30,"processor-header-graph-color1":"rgba(29,172,214,1.0)","sensors-header-tooltip-sensor5-digits":-1,"gpu-header-icon-custom":"","gpu-header-icon-size":18,"panel-margin-right":0,"processor-header-frequency":false,"processor-header-graph-breakdown":true,"sensors-header-tooltip-sensor3-digits":-1,"processor-source-cpu-usage":"auto","memory-header-value-figures":3,"compact-mode":false,"processor-header-frequency-mode":"average","panel-box-order":1,"compact-mode-compact-icon-custom":"","network-header-graph-width":30,"gpu-header-tooltip":true,"sensors-header-icon":true,"gpu-header-activity-percentage-icon-alert-threshold":0,"sensors-header-sensor2-digits":-1,"processor-header-graph-color2":"rgba(214,29,29,1.0)","sensors-header-icon-alert-color":"rgba(235, 64, 52, 1)","sensors-update":3,"gpu-header-tooltip-memory-value":true,"processor-header-bars":false,"gpu-header-tooltip-memory-percentage":true,"gpu-header-memory-bar-color1":"rgba(29,172,214,1.0)","sensors-header-tooltip-sensor1":"\\"\\"","sensors-header-tooltip-sensor1-digits":-1,"storage-header-free-figures":3,"processor-header-percentage-core":false,"sensors-header-tooltip-sensor2-name":"","network-source-network-io":"auto","memory-header-bars":true,"processor-header-percentage":false,"processor-header-frequency-figures":3,"storage-header-io-threshold":0,"memory-header-graph-color1":"rgba(29,172,214,1.0)","compact-mode-activation":"both","storage-header-icon-size":18,"sensors-header-tooltip-sensor1-name":"","sensors-header-icon-size":18,"sensors-header-icon-color":"","explicit-zero":false,"sensors-source":"auto","storage-header-io-graph-color1":"rgba(29,172,214,1.0)","storage-header-percentage-icon-alert-threshold":0,"sensors-header-tooltip-sensor2":"\\"\\"","compact-mode-expanded-icon-custom":"","memory-header-graph-color2":"rgba(29,172,214,0.3)","processor-header-icon-alert-color":"rgba(235, 64, 52, 1)","processor-header-tooltip-percentage":true,"gpu-header-show":false,"network-update":1.5,"sensors-header-tooltip-sensor3":"\\"\\"","sensors-ignored-attribute-regex":"","memory-header-icon-custom":"","storage-header-tooltip-io":true,"sensors-header-tooltip-sensor4":"\\"\\"","storage-header-percentage":false,"sensors-temperature-unit":"celsius","storage-header-icon-alert-color":"rgba(235, 64, 52, 1)","storage-header-free-icon-alert-threshold":0,"memory-source-top-processes":"auto","storage-header-value-figures":3,"storage-header-io-bars-color1":"rgba(29,172,214,1.0)","storage-menu-arrow-color1":"rgba(29,172,214,1.0)","gpu-header-tooltip-activity-percentage":true,"network-header-icon-custom":"","processor-header-graph-width":30,"network-header-icon":true,"storage-menu-arrow-color2":"rgba(214,29,29,1.0)","sensors-header-sensor2-layout":"vertical","sensors-header-tooltip-sensor5":"\\"\\"","memory-header-bars-breakdown":true,"sensors-header-show":false,"sensors-header-tooltip":false,"storage-header-tooltip":true,"processor-header-bars-core":false,"storage-indicators-order":"[\\"icon\\",\\"bar\\",\\"percentage\\",\\"value\\",\\"free\\",\\"IO bar\\",\\"IO graph\\",\\"IO speed\\"]","processor-menu-bars-breakdown":true,"storage-header-io-bars-color2":"rgba(214,29,29,1.0)","network-io-unit":"kB/s","storage-header-icon":true,"gpu-header-activity-graph-color1":"rgba(29,172,214,1.0)","memory-unit":"kB-KB","processor-menu-core-bars-breakdown":true,"sensors-header-sensor2-show":false,"network-header-tooltip":true,"storage-header-tooltip-free":true,"storage-header-bars-color1":"rgba(29,172,214,1.0)","theme-style":"dark","storage-source-storage-usage":"auto","network-header-io":false,"storage-header-tooltip-value":false,"storage-main":"KINGSTON_SNV3S1000G_50026B768712ED8F-part6","memory-header-tooltip-percentage":true,"memory-indicators-order":"[\\"icon\\",\\"bar\\",\\"graph\\",\\"percentage\\",\\"value\\",\\"free\\"]","memory-source-memory-usage":"auto","memory-header-graph-breakdown":false,"memory-header-tooltip-value":true,"memory-menu-graph-breakdown":true,"sensors-indicators-order":"[\\"icon\\",\\"value\\"]","compact-mode-start-expanded":false,"startup-delay":2,"memory-header-percentage-icon-alert-threshold":0,"sensors-header-sensor1-show":false,"network-ignored-regex":"","storage-update":3,"memory-header-value":false,"memory-header-bars-color1":"rgba(29,172,214,1.0)","network-header-io-graph-color1":"rgba(29,172,214,1.0)","gpu-header-memory-bar":true,"memory-used":"total-free-buffers-cached","gpu-header-memory-graph-width":30,"gpu-header-memory-graph":false,"sensors-ignored-category-regex":"","headers-font-family":"","memory-header-icon":true,"memory-header-bars-color2":"rgba(29,172,214,0.3)","network-header-io-graph-color2":"rgba(214,29,29,1.0)","processor-gpu":true,"network-header-icon-color":"","storage-header-value":false,"gpu-header-icon-alert-color":"rgba(235, 64, 52, 1)","processor-header-icon":true,"headers-font-size":0,"network-header-io-figures":2,"network-header-show":true,"sensors-ignored-regex":"","network-header-io-bars-color1":"rgba(29,172,214,1.0)","processor-update":1.5,"network-source-wireless":"auto","processor-indicators-order":"[\\"icon\\",\\"bar\\",\\"graph\\",\\"percentage\\",\\"frequency\\"]","storage-header-icon-custom":"","gpu-header-activity-bar":true,"gpu-header-activity-bar-color1":"rgba(29,172,214,1.0)","shell-bar-position":"top","network-ignored":"\\"[]\\"","network-header-io-bars-color2":"rgba(214,29,29,1.0)","memory-header-icon-color":"","sensors-header-sensor1-digits":-1,"storage-header-io-layout":"vertical","memory-header-icon-size":18,"network-header-io-threshold":0,"storage-header-show":true,"sensors-header-tooltip-sensor4-digits":-1,"processor-header-percentage-icon-alert-threshold":0,"memory-header-tooltip":true,"headers-height-override":0,"memory-header-graph":false,"network-header-icon-size":18,"gpu-header-icon-color":"","memory-header-free-figures":3,"processor-header-bars-breakdown":true,"gpu-header-activity-graph":false,"storage-header-io-bars":false,"memory-header-icon-alert-color":"rgba(235, 64, 52, 1)","storage-header-free":false,"processor-header-icon-custom":"","gpu-header-memory-percentage":false,"processor-header-tooltip-percentage-core":false,"processor-source-cpu-cores-usage":"auto","processor-source-top-processes":"auto","processor-header-icon-color":"","sensors-header-tooltip-sensor5-name":"","gpu-header-activity-graph-width":30,"gpu-header-activity-percentage":false,"gpu-indicators-order":"[\\"icon\\",\\"activity bar\\",\\"activity graph\\",\\"activity percentage\\",\\"memory bar\\",\\"memory graph\\",\\"memory percentage\\",\\"memory value\\"]","network-header-io-layout":"vertical","gpu-update":2,"gpu-header-memory-percentage-icon-alert-threshold":0,"processor-header-bars-color1":"rgba(29,172,214,1.0)","processor-header-show":true,"storage-header-graph":false,"memory-header-free-icon-alert-threshold":0,"storage-ignored-regex":"","storage-menu-device-color":"rgba(29,172,214,1.0)","storage-header-tooltip-percentage":true,"memory-header-free":false,"storage-source-top-processes":"auto"}}'
+queued-pref-category='memory'
+sensors-indicators-order='["icon","value"]'
+shell-bar-position='top'
+storage-header-bars-color1='rgba(29,172,214,1.0)'
+storage-header-io-bars-color1='rgba(29,172,214,1.0)'
+storage-header-io-bars-color2='rgba(214,29,29,1.0)'
+storage-header-io-graph-color1='rgba(29,172,214,1.0)'
+storage-header-io-graph-color2='rgba(214,29,29,1.0)'
+storage-indicators-order='["icon","bar","percentage","value","free","IO bar","IO graph","IO speed"]'
+storage-main='KINGSTON_SNV3S1000G_50026B768712ED8F-part6'
+storage-menu-arrow-color1='rgba(29,172,214,1.0)'
+storage-menu-arrow-color2='rgba(214,29,29,1.0)'
+storage-menu-device-color='rgba(29,172,214,1.0)'
+theme-style='dark'
+
+[auto-move-windows]
+application-list=['code-insiders.desktop:2', 'one.ablaze.floorp.desktop:3', 'org.telegram.desktop.desktop:5', 'com.stremio.Stremio.desktop:7', 'com.github.wwmm.easyeffects.desktop:8', 'com.mitchellh.ghostty.desktop:1', 'mpv.desktop:7']
+
+[auto-theme-switcher]
+auto-detect-location=true
+control-brightness=false
+dark-brightness=1
+dark-mode-trigger='sunset'
+dark-theme='adw-gtk3-dark'
+last-brightness-update='1768034177119'
+light-brightness=1
+light-mode-trigger='sunrise'
+light-theme='adw-gtk3'
+show-notifications=false
+true-light-mode=true
+use-manual-coordinates=false
+
+[blur-my-shell]
+hacks-level=0
+rounded-blur-found=false
+settings-version=2
+
+[blur-my-shell/applications]
+pipeline='pipeline_default'
+
+[blur-my-shell/coverflow-alt-tab]
+pipeline='pipeline_default'
+
+[blur-my-shell/dash-to-dock]
+pipeline='pipeline_default_rounded'
+
+[blur-my-shell/lockscreen]
+pipeline='pipeline_default'
+
+[blur-my-shell/overview]
+pipeline='pipeline_default'
+
+[blur-my-shell/panel]
+override-background=true
+override-background-dynamically=true
+pipeline='pipeline_default'
+style-panel=0
+
+[blur-my-shell/screenshot]
+pipeline='pipeline_default'
+
+[caffeine]
+cli-toggle=false
+countdown-timer=0
+enable-fullscreen=false
+indicator-position-max=1
+prefs-default-height=702
+prefs-default-width=833
+toggle-state=false
+user-enabled=true
+
+[display-brightness-ddcutil]
+ddcutil-binary-path='/usr/bin/ddcutil'
+ddcutil-queue-ms=130.0
+ddcutil-sleep-multiplier=40.0
+decrease-brightness-shortcut=['<Control>XF86MonBrightnessDown']
+increase-brightness-shortcut=['<Control>XF86MonBrightnessUp']
+only-all-slider=true
+position-system-menu=3.0
+show-all-slider=true
+show-display-name=false
+show-internal-slider=true
+show-value-label=true
+step-change-keyboard=2.0
+
+[display-configuration-switcher]
+configs=[('LG', uint32 655767826, [(0, 0, 1.0, uint32 0, true, [('HDMI-3', '1920x1080@60.000', {'color-mode': <uint32 0>})])], {'layout-mode': <uint32 1>}, [('HDMI-2', 'ACR', 'SA270', '0x92301b4a'), ('HDMI-3', 'GSM', 'LG FULL HD', '0x01010101')]), ('Ambos', 1486145014, [(0, 0, 1.0, 0, true, [('HDMI-3', '1920x1080@60.000', {'color-mode': <uint32 0>})]), (1920, 0, 1.0, 0, false, [('HDMI-2', '1920x1080@74.973', {'color-mode': <uint32 0>})])], {'layout-mode': <uint32 1>}, [('HDMI-2', 'ACR', 'SA270', '0x92301b4a'), ('HDMI-3', 'GSM', 'LG FULL HD', '0x01010101')]), ('Acer', 2549336976, [(0, 0, 1.25, 0, true, [('HDMI-2', '1920x1080@74.973', {'color-mode': <uint32 0>})])], {'layout-mode': <uint32 1>}, [('HDMI-2', 'ACR', 'SA270', '0x92301b4a'), ('HDMI-3', 'GSM', 'LG FULL HD', '0x01010101')])]
+last-config-index=uint32 2
+
+[gsconnect]
+devices=['8601279ec4c845bcbad2c4d44a88997e', 'eb2f498322074c319bfec495a7e19231']
+enabled=false
+name='work'
+
+[gsconnect/device/8601279ec4c845bcbad2c4d44a88997e]
+certificate-pem='-----BEGIN CERTIFICATE-----\nMIIBizCCATGgAwIBAgIBATAKBggqhkjOPQQDBDBPMSkwJwYDVQQDDCA4NjAxMjc5\nZWM0Yzg0NWJjYmFkMmM0ZDQ0YTg4OTk3ZTEUMBIGA1UECwwLS0RFIENvbm5lY3Qx\nDDAKBgNVBAoMA0tERTAeFw0yNDA1MTAwMzAwMDBaFw0zNTA1MTAwMzAwMDBaME8x\nKTAnBgNVBAMMIDg2MDEyNzllYzRjODQ1YmNiYWQyYzRkNDRhODg5OTdlMRQwEgYD\nVQQLDAtLREUgQ29ubmVjdDEMMAoGA1UECgwDS0RFMFkwEwYHKoZIzj0CAQYIKoZI\nzj0DAQcDQgAEALnAsbJSBe0EBS7o3OD2cf5evN+2fQbxnyjYia/rp569gh/vMdU9\ngvvw+q+LuDHh8SvcWtHqPRLcmwf7pcT9gjAKBggqhkjOPQQDBANIADBFAiAQwWZ2\nu0E3Tu6I7TcVwuhY4SMneoKZj8vZ1S+6a8+sPgIhANZR5HN9aDr7EHWOl1lc+Be3\n9za5zydN+39oqOkLbFV6\n-----END CERTIFICATE-----\n'
+incoming-capabilities=['kdeconnect.battery', 'kdeconnect.bigscreen.stt', 'kdeconnect.clipboard', 'kdeconnect.clipboard.connect', 'kdeconnect.contacts.request_all_uids_timestamps', 'kdeconnect.contacts.request_vcards_by_uid', 'kdeconnect.findmyphone.request', 'kdeconnect.mousepad.keyboardstate', 'kdeconnect.mousepad.request', 'kdeconnect.mpris', 'kdeconnect.mpris.request', 'kdeconnect.notification', 'kdeconnect.notification.action', 'kdeconnect.notification.reply', 'kdeconnect.notification.request', 'kdeconnect.ping', 'kdeconnect.runcommand', 'kdeconnect.sftp.request', 'kdeconnect.share.request', 'kdeconnect.share.request.update', 'kdeconnect.sms.request', 'kdeconnect.sms.request_attachment', 'kdeconnect.sms.request_conversation', 'kdeconnect.sms.request_conversations', 'kdeconnect.systemvolume', 'kdeconnect.telephony.request', 'kdeconnect.telephony.request_mute']
+last-connection='lan://192.168.1.200:1716'
+name='Galaxy A11'
+outgoing-capabilities=['kdeconnect.battery', 'kdeconnect.bigscreen.stt', 'kdeconnect.clipboard', 'kdeconnect.clipboard.connect', 'kdeconnect.connectivity_report', 'kdeconnect.contacts.response_uids_timestamps', 'kdeconnect.contacts.response_vcards', 'kdeconnect.findmyphone.request', 'kdeconnect.mousepad.echo', 'kdeconnect.mousepad.keyboardstate', 'kdeconnect.mousepad.request', 'kdeconnect.mpris', 'kdeconnect.mpris.request', 'kdeconnect.notification', 'kdeconnect.notification.request', 'kdeconnect.ping', 'kdeconnect.presenter', 'kdeconnect.runcommand.request', 'kdeconnect.sftp', 'kdeconnect.share.request', 'kdeconnect.sms.attachment_file', 'kdeconnect.sms.messages', 'kdeconnect.systemvolume.request', 'kdeconnect.telephony']
+paired=true
+supported-plugins=['battery', 'clipboard', 'connectivity_report', 'contacts', 'findmyphone', 'mousepad', 'mpris', 'notification', 'ping', 'presenter', 'runcommand', 'sftp', 'share', 'sms', 'systemvolume', 'telephony']
+type='phone'
+
+[gsconnect/device/8601279ec4c845bcbad2c4d44a88997e/plugin/battery]
+custom-battery-notification-value=uint32 80
+
+[gsconnect/device/8601279ec4c845bcbad2c4d44a88997e/plugin/notification]
+applications='{"ZapZap":{"iconName":"","enabled":true},"Relato de Problemas":{"iconName":"face-sad-symbolic","enabled":true},"Impressoras":{"iconName":"org.gnome.Settings-printers-symbolic","enabled":true},"Eventos e lembretes de tarefas":{"iconName":"org.gnome.Evolution-alarm-notify","enabled":true},"Telegram":{"iconName":"org.telegram.desktop","enabled":true},"Zenity":{"iconName":"application-x-executable","enabled":true},"Discos":{"iconName":"org.gnome.DiskUtility","enabled":true},"Easy Effects":{"iconName":"com.github.wwmm.easyeffects","enabled":true},"Data & hora":{"iconName":"org.gnome.Settings-time-symbolic","enabled":true},"Programas":{"iconName":"org.gnome.Software","enabled":true},"Timeshift":{"iconName":"timeshift","enabled":true},"Rhythmbox":{"iconName":"org.gnome.Rhythmbox3","enabled":true},"Analisador de uso de disco":{"iconName":"org.gnome.baobab","enabled":true},"Energia":{"iconName":"org.gnome.Settings-power-symbolic","enabled":true},"Gerenciamento de cor":{"iconName":"org.gnome.Settings-color-symbolic","enabled":true},"Arquivos":{"iconName":"org.gnome.Nautilus","enabled":true},"Relógios":{"iconName":"org.gnome.clocks","enabled":true},"Discord":{"iconName":"system-run-symbolic","enabled":true},"Fragments":{"iconName":"folder-download-symbolic","enabled":true},"Floorp":{"iconName":"system-run-symbolic","enabled":true},"Pika Backup":{"iconName":"org.gnome.World.PikaBackup","enabled":true},"calibre":{"iconName":"com.calibre_ebook.calibre","enabled":true},"Backups":{"iconName":"org.gnome.DejaDup","enabled":true},"HexChat":{"iconName":"io.github.Hexchat","enabled":true},"Monitor do Pika Backup":{"iconName":"org.gnome.World.PikaBackup","enabled":true},"Firefox":{"iconName":"","enabled":true},"Contas on-line":{"iconName":"dialog-warning","enabled":true}}'
+
+[gsconnect/device/8601279ec4c845bcbad2c4d44a88997e/plugin/share]
+receive-directory='/home/alexandre/Downloads'
+
+[gsconnect/device/eb2f498322074c319bfec495a7e19231]
+certificate-pem='-----BEGIN CERTIFICATE-----\nMIIBijCCATGgAwIBAgIBATAKBggqhkjOPQQDBDBPMSkwJwYDVQQDDCBlYjJmNDk4\nMzIyMDc0YzMxOWJmZWM0OTVhN2UxOTIzMTEUMBIGA1UECwwLS0RFIENvbm5lY3Qx\nDDAKBgNVBAoMA0tERTAeFw0yNDA3MjgwMzAwMDBaFw0zNTA3MjgwMzAwMDBaME8x\nKTAnBgNVBAMMIGViMmY0OTgzMjIwNzRjMzE5YmZlYzQ5NWE3ZTE5MjMxMRQwEgYD\nVQQLDAtLREUgQ29ubmVjdDEMMAoGA1UECgwDS0RFMFkwEwYHKoZIzj0CAQYIKoZI\nzj0DAQcDQgAEV1K2Q7sPzB1HYuPYdQ8ZMzLwx2HduOTxlFvnYUjxDcHWmYbaBdv5\nixsLatGpOZ2hYLQSRX2dD3zJZGKXwqC1gjAKBggqhkjOPQQDBANHADBEAiBtH0G4\ncEr4ft7j5L8z097OV7Rkip1iSwUKpX8n7mz8RQIgY5U079eE3lgBlFJ0VrbY0uXx\nCTJeHvFfeugFgkcEQLs=\n-----END CERTIFICATE-----\n'
+incoming-capabilities=['kdeconnect.battery', 'kdeconnect.bigscreen.stt', 'kdeconnect.clipboard', 'kdeconnect.clipboard.connect', 'kdeconnect.contacts.request_all_uids_timestamps', 'kdeconnect.contacts.request_vcards_by_uid', 'kdeconnect.findmyphone.request', 'kdeconnect.mousepad.keyboardstate', 'kdeconnect.mousepad.request', 'kdeconnect.mpris', 'kdeconnect.mpris.request', 'kdeconnect.notification', 'kdeconnect.notification.action', 'kdeconnect.notification.reply', 'kdeconnect.notification.request', 'kdeconnect.ping', 'kdeconnect.runcommand', 'kdeconnect.sftp.request', 'kdeconnect.share.request', 'kdeconnect.share.request.update', 'kdeconnect.sms.request', 'kdeconnect.sms.request_attachment', 'kdeconnect.sms.request_conversation', 'kdeconnect.sms.request_conversations', 'kdeconnect.systemvolume', 'kdeconnect.telephony.request', 'kdeconnect.telephony.request_mute']
+last-connection='lan://192.168.0.3:1716'
+name='Galaxy A11'
+outgoing-capabilities=['kdeconnect.battery', 'kdeconnect.bigscreen.stt', 'kdeconnect.clipboard', 'kdeconnect.clipboard.connect', 'kdeconnect.connectivity_report', 'kdeconnect.contacts.response_uids_timestamps', 'kdeconnect.contacts.response_vcards', 'kdeconnect.findmyphone.request', 'kdeconnect.mousepad.echo', 'kdeconnect.mousepad.keyboardstate', 'kdeconnect.mousepad.request', 'kdeconnect.mpris', 'kdeconnect.mpris.request', 'kdeconnect.notification', 'kdeconnect.notification.request', 'kdeconnect.ping', 'kdeconnect.presenter', 'kdeconnect.runcommand.request', 'kdeconnect.sftp', 'kdeconnect.share.request', 'kdeconnect.sms.attachment_file', 'kdeconnect.sms.messages', 'kdeconnect.systemvolume.request', 'kdeconnect.telephony']
+paired=true
+supported-plugins=['battery', 'clipboard', 'connectivity_report', 'contacts', 'findmyphone', 'mousepad', 'mpris', 'notification', 'ping', 'presenter', 'runcommand', 'sftp', 'share', 'sms', 'systemvolume', 'telephony']
+type='phone'
+
+[gsconnect/device/eb2f498322074c319bfec495a7e19231/plugin/battery]
+custom-battery-notification-value=uint32 80
+
+[gsconnect/device/eb2f498322074c319bfec495a7e19231/plugin/notification]
+applications='{"Impressoras":{"iconName":"org.gnome.Settings-printers-symbolic","enabled":true},"Eventos e lembretes de tarefas":{"iconName":"org.gnome.Evolution-alarm-notify","enabled":true},"Telegram":{"iconName":"org.telegram.desktop","enabled":true},"Pika Backup":{"iconName":"org.gnome.World.PikaBackup","enabled":true},"Zenity":{"iconName":"application-x-executable","enabled":true},"Discos":{"iconName":"org.gnome.DiskUtility","enabled":true},"Easy Effects":{"iconName":"com.github.wwmm.easyeffects","enabled":true},"Programas":{"iconName":"org.gnome.Software","enabled":true},"Timeshift":{"iconName":"timeshift","enabled":true},"Data & hora":{"iconName":"org.gnome.Settings-time-symbolic","enabled":true},"ZapZap":{"iconName":"com.rtosta.zapzap","enabled":true},"Rhythmbox":{"iconName":"org.gnome.Rhythmbox3","enabled":true},"Analisador de uso de disco":{"iconName":"org.gnome.baobab","enabled":true},"Energia":{"iconName":"org.gnome.Settings-power-symbolic","enabled":true},"calibre":{"iconName":"com.calibre_ebook.calibre","enabled":true},"Gerenciamento de cor":{"iconName":"org.gnome.Settings-color-symbolic","enabled":true},"Backups":{"iconName":"org.gnome.DejaDup","enabled":true},"HexChat":{"iconName":"io.github.Hexchat","enabled":true},"Arquivos":{"iconName":"org.gnome.Nautilus","enabled":true},"Relógios":{"iconName":"org.gnome.clocks","enabled":true},"Relato de Problemas":{"iconName":"abrt","enabled":true},"Monitor do Pika Backup":{"iconName":"org.gnome.World.PikaBackup","enabled":true},"Firefox":{"iconName":"","enabled":true},"Contas on-line":{"iconName":"dialog-warning","enabled":true}}'
+
+[gsconnect/device/eb2f498322074c319bfec495a7e19231/plugin/share]
+receive-directory='/home/alexandre/Downloads'
+
+[gsconnect/messaging]
+window-maximized=false
+window-size=(640, 480)
+
+[gsconnect/preferences]
+window-maximized=false
+window-size=(825, 460)
+
+[hotedge]
+fallback-in-use=false
+pressure-threshold=uint32 100
+show-animation=false
+suppress-activation-when-fullscreen=false
+
+[in-picture]
+diagonal-relative=30
+gnome-version='50.1'
+
+[just-perfection]
+accent-color-icon=true
+activities-button=false
+alt-tab-icon-size=0
+alt-tab-small-icon-size=0
+alt-tab-window-preview-size=0
+animation=0
+clock-menu=true
+controls-manager-spacing-size=0
+dash=true
+dash-icon-size=48
+events-button=false
+keyboard-layout=false
+looking-glass-height=0
+looking-glass-width=0
+osd-position=3
+overlay-key=true
+panel=true
+panel-button-padding-size=0
+panel-icon-size=18
+panel-indicator-padding-size=25
+panel-size=36
+power-icon=true
+quick-settings-dark-mode=false
+quick-settings-do-not-disturb=false
+quick-settings-night-light=false
+support-notifier-showed-version=36
+support-notifier-type=0
+switcher-popup-delay=false
+theme=false
+window-demands-attention-focus=true
+window-maximized-on-create=false
+window-picker-icon=false
+window-preview-caption=false
+workspace=true
+workspace-peek=false
+workspace-popup=false
+workspace-switcher-size=12
+workspace-thumbnail-to-main-view=true
+workspace-wrap-around=true
+workspaces-in-app-grid=false
+world-clock=false
+
+[libpanel]
+layout=[['gnome@main', 'quick-settings-audio-panel@rayzeq.github.io/main']]
+single-column=false
+
+[lilypad]
+ignored-order=@as []
+lilypad-order=@as []
+reorder=false
+rightbox-order=['system_monitor', 'lilypad', 'StatusNotifierItem', 'a11y']
+
+[net/gfxmonk/scroll-workspaces]
+ignore-last-workspace=false
+indicator=true
+wrap=false
+
+[notification-configurator]
+global='{"enabled":true,"notificationCenter":{"disableGrouping":false,"maximumPerSource":2},"rateLimiting":{"enabled":false,"notificationThreshold":5000,"action":"close"},"timeout":{"enabled":true,"notificationTimeout":2000,"ignoreIdle":true},"urgency":{"alwaysNormalUrgency":true},"display":{"enableFullscreen":false,"notificationPosition":"center","verticalPosition":"top","hideAppTitleRow":true},"colors":{"enabled":false,"theme":{"appNameColor":[0.6,0.6,0.607843137,1],"timeColor":[0.6,0.6,0.607843137,1],"backgroundColor":[0.329411765,0.329411765,0.352941176,1],"titleColor":[0.992156863,0.992156863,0.992156863,1],"bodyColor":[0.992156863,0.992156863,0.992156863,1],"appNameFontSize":18,"timeFontSize":14,"titleFontSize":9,"bodyFontSize":18}},"margins":{"enabled":false,"top":0,"bottom":0,"left":0,"right":0},"windowAttention":{"activateInstead":false}}'
+patterns='[]'
+
+[openbar]
+autohg-menu=false
+bartype='Mainland'
+bgalpha=0.0
+bguri='file:///home/alexandre/.config/background'
+dark-bguri='file:///home/alexandre/.config/background'
+dark-mbcolor=['0.020', '0.612', '0.655']
+dark-mhcolor=['0.020', '0.612', '0.655']
+dark-smbgcolor=['0.341', '0.890', '0.537']
+default-font='Sans 12'
+fitts-widgets=false
+import-export=false
+light-bguri='file:///home/alexandre/.config/background'
+mbalpha=0.45000000000000001
+mbcolor=['0.020', '0.612', '0.655']
+mbgalpha=0.80000000000000004
+mfgalpha=0.88
+mhalpha=0.80000000000000004
+mhcolor=['0.020', '0.612', '0.655']
+neon=false
+radius-bottomleft=false
+radius-bottomright=true
+radius-topleft=false
+radius-topright=false
+reloadstyle=true
+smbgcolor=['0.341', '0.890', '0.537']
+smbgoverride=false
+trigger-reload=true
+width-bottom=false
+width-left=false
+width-right=false
+width-top=false
+
+[quick-settings-audio-panel]
+applications-volume-sliders-filter-mode='blacklist'
+create-applications-volume-sliders=false
+create-balance-slider=false
+create-mpris-controllers=true
+create-perdevice-volume-sliders=true
+group-applications-volume-sliders=false
+master-volume-sliders-show-current-device=true
+merged-panel-position='bottom'
+move-input-volume-slider=false
+move-output-volume-slider=true
+panel-type='independent-panel'
+perdevice-volume-sliders-filter-mode='blacklist'
+perdevice-volume-sliders-filters=@as []
+remove-output-volume-slider=false
+version=2
+
+[quick-settings-tweaks]
+datemenu-disable-menu=false
+datemenu-hide-left-box=true
+datemenu-hide-media-control=true
+datemenu-hide-right-box=false
+dnd-quick-toggle-enabled=false
+media-enabled=true
+menu-animation-enabled=false
+notifications-enabled=false
+overlay-menu-enabled=false
+system-indicator-screen-sharing-indicator-use-accent=false
+system-items-layout-enabled=false
+system-items-layout-hide=true
+weather-enabled=false
+
+[quicksettings-audio-devices-hider]
+available-input-names=['Easy Effects Source']
+available-output-names=['Easy Effects Sink', 'HDMI / DisplayPort – Built-in Audio', 'HDMI / DisplayPort 2 – Built-in Audio']
+excluded-input-names=['Easy Effects Source']
+excluded-output-names=['Easy Effects Sink']
+
+[shutdowntimer-deminder]
+auto-wake-value=false
+preferences-selected-page-value=3
+show-end-session-dialog-value=false
+shutdown-mode-value='Suspend'
+shutdown-slider-value=2.1582733812949639
+shutdown-timestamp-value=-1
+
+[system-monitor]
+show-download=true
+show-swap=true
+show-upload=true
+
+[tilingshell]
+enable-autotiling=true
+enable-screen-edges-windows-suggestions=false
+enable-smart-window-border-radius=true
+enable-snap-assistant-windows-suggestions=false
+enable-tiling-system-windows-suggestions=false
+enable-window-border=true
+last-version-name-installed='16.3'
+layouts-json='[{"id":"Layout 1","tiles":[{"x":0,"y":0,"width":0.22,"height":0.5,"groups":[1,2]},{"x":0,"y":0.5,"width":0.22,"height":0.5,"groups":[1,2]},{"x":0.22,"y":0,"width":0.56,"height":1,"groups":[2,3]},{"x":0.78,"y":0,"width":0.22,"height":0.5,"groups":[3,4]},{"x":0.78,"y":0.5,"width":0.22,"height":0.5,"groups":[3,4]}]},{"id":"Layout 2","tiles":[{"x":0,"y":0,"width":0.22,"height":1,"groups":[1]},{"x":0.22,"y":0,"width":0.56,"height":1,"groups":[1,2]},{"x":0.78,"y":0,"width":0.22,"height":1,"groups":[2]}]},{"id":"Layout 3","tiles":[{"x":0,"y":0,"width":0.33,"height":1,"groups":[1]},{"x":0.33,"y":0,"width":0.67,"height":1,"groups":[1]}]},{"id":"Layout 4","tiles":[{"x":0,"y":0,"width":0.67,"height":1,"groups":[1]},{"x":0.67,"y":0,"width":0.33,"height":1,"groups":[1]}]}]'
+overridden-settings='{}'
+resize-complementing-windows=true
+selected-layouts=[['Layout 1'], ['Layout 1'], ['Layout 1'], ['Layout 1'], ['Layout 1'], ['Layout 1']]
+show-indicator=true
+window-border-color='rgb(129,61,156)'
+window-border-width=uint32 2
+
+[tophat]
+mount-to-monitor='/'
+position-in-panel='left'
+show-fs=true
+show-icons=true
+show-menu-actions=true
+use-system-accent=false
+
+[useless-gaps]
+gap-size=5
+
+[vertical-workspaces]
+center-dash-to-ws=false
+dash-bg-radius=18
+dash-position=2
+dash-position-adjust=0
+show-app-icon-position=1
+ws-thumbnails-position=5
+
+[vitals]
+hide-zeros=false
+menu-centered=false
+position-in-panel=0
+show-gpu=false
+update-time=1

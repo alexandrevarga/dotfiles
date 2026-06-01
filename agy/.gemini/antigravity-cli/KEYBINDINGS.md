@@ -4,6 +4,7 @@
 * **Workspace Navigation:** `<Super>1-9` (Switch directly), `<Super><Alt>Left/Right` or `<Control><Alt>Left/Right` (Switch lateral).
 * **Window Layout:** `<Super>Up` or `<Alt>F10` (Maximize), `<Super>Down` or `<Alt>F5` (Unmaximize), `<Super>h` (Minimize).
 * **Window Placement:** `<Super><Shift>1-9` (Move window to workspace), `<Super><Shift>Arrows` (Move window between monitors).
+* **Window Tiling:** `<Super>Left/Right` (Snap window to halves).
 
 ## Application Launchers (Smart `switch-to-application` Focus Keybinds)
 * **Ghostty Terminal (Workspace 1):** `<Super>Return` (or `<Super>Enter` via `switch-to-application-1`)
@@ -12,7 +13,8 @@
 * **Telegram Desktop (Workspace 5):** `<Super>t` (via `switch-to-application-4`, opens `telegram`)
 * **Stremio Media Player (Workspace 7):** `<Super>s` (via `switch-to-application-7`, opens `stremio`)
 * **EasyEffects Sound Suite (Workspace 8):** `<Super>e` (via `switch-to-application-8`, opens `easyeffects`)
-* **Ulauncher Toggle:** `<Control>space` (or `<Primary>space` in dconf custom0)
+* **Ulauncher Toggle:** `<Super>space` (or `<Super>space` in dconf custom0)
+* **Toggle Do Not Disturb:** `Pause` (custom6, toggles GNOME show-banners)
 * **Convert Clipboard Image to Path Script:** `<Super>i` (custom1, calls `~/.local/bin/img_to_path.sh`)
 
 ## SRE Safe Power Management (Zero-Accident Keybindings)

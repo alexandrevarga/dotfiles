@@ -16,18 +16,19 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys logout "[]"
 gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "[]"
 
 # 2. Configura os atalhos customizados do Gnome (Necessário para Wayland)
-# custom0: Ulauncher (Ctrl+Space)
+# custom0: Ulauncher (Super+Space)
 # custom1: Clipboard Image Converter (Super+I)
 # custom2: Suspender/Sleep (Ctrl+Pause)
 # custom3: Hibernar/Hibernate (Ctrl+Shift+Pause)
 # custom4: Reiniciar Instantâneo (Ctrl+Alt+Delete)
 # custom5: Desligar Instantâneo (Ctrl+Alt+End)
-gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/']"
+# custom6: Toggle Do Not Disturb (Pause)
+gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/']"
 
 # custom0: Launch Ulauncher
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name "Launch Ulauncher"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command "ulauncher-toggle"
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding "<Primary>space"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding "<Super>space"
 
 # custom1: Clipboard Image to Path
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ name "Convert Clipboard Image to Path"
@@ -54,6 +55,10 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/or
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/ command "systemctl poweroff"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/ binding "<Primary><Alt>End"
 
+# custom6: Toggle Do Not Disturb
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/ name "Toggle Do Not Disturb"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/ command "bash -c 'if [ \"\$(gsettings get org.gnome.desktop.notifications show-banners)\" = \"true\" ]; then gsettings set org.gnome.desktop.notifications show-banners false; else gsettings set org.gnome.desktop.notifications show-banners true; fi'"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/ binding "Pause"
 
 # 3. Rearranjo do Dock para respeitar o limite de 9 favoritos do Gnome
 # Movemos o EasyEffects da posição 12 para a posição 8 (Obsidian vai para a 12ª)
@@ -130,5 +135,6 @@ echo "👉 Super+C     ➔ Foca o VS Code (Workspace 2)"
 echo "👉 Super+B     ➔ Foca o Floorp Browser (Workspace 3)"
 echo "👉 Super+T     ➔ Foca o Telegram (Workspace 5)"
 echo "👉 Super+E     ➔ Foca o EasyEffects (Workspace 8)"
-echo "👉 Ctrl+Space  ➔ Ulauncher"
+echo "👉 Super+Space ➔ Ulauncher"
+echo "👉 Pause       ➔ Toggle Do Not Disturb (DND)"
 echo "👉 Super+I     ➔ Prepara Imagem do Clipboard (Dê Ctrl+V depois no Tmux)"

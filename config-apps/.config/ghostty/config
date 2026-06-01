@@ -33,3 +33,4 @@ window-height = 9999
 font-family = "FiraCode Nerd Font Mono"
 font-style = Regular
 font-size = 16
+bell-features = no-attention

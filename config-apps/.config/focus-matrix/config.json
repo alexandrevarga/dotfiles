@@ -1,0 +1,34 @@
+{
+  "rules": [
+    {
+      "app_id": "com.mitchellh.ghostty.desktop",
+      "workspace": 1,
+      "keybind": "<Super>Return"
+    },
+    {
+      "app_id": "code-insiders.desktop",
+      "workspace": 2,
+      "keybind": "<Super>c"
+    },
+    {
+      "app_id": "one.ablaze.floorp.desktop",
+      "workspace": 3,
+      "keybind": "<Super>b"
+    },
+    {
+      "app_id": "org.telegram.desktop.desktop",
+      "workspace": 5,
+      "keybind": "<Super>t"
+    },
+    {
+      "app_id": "com.stremio.Stremio.desktop",
+      "workspace": 7,
+      "keybind": "<Super>s"
+    },
+    {
+      "app_id": "com.github.wwmm.easyeffects.desktop",
+      "workspace": 8,
+      "keybind": "<Super>e"
+    }
+  ]
+}

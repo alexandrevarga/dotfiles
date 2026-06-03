@@ -31,7 +31,7 @@
 
 ### 4. DYNAMIC CONTEXT RETRIEVAL
 - **Keybindings Offloaded:** To audit GNOME, Tmux, or Ulauncher shortcuts, strictly read `~/.gemini/antigravity-cli/KEYBINDINGS.md`.
-- **Project-Specific Rules:** When entering a new repository, silently check for and inherit `.agy-project.md`.
+- **Project-Specific Rules:** When entering a new repository, silently check for and inherit `.project-specs.md`.
 - **SUDO FATALITY:** Root commands must exclusively be delivered as markdown blocks in the chat
 - 
 ## 5. GOVERNANCE, SAFETY & CYBERSECURITY

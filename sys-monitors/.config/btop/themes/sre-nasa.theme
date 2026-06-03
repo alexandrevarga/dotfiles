@@ -1,0 +1,99 @@
+# AGY-SRE Btop Theme
+# Synced with the AGY Terminal Design System:
+# - Ghostty bg: #121212 | fg base: #9e9e9e
+# - ZSH commands: #4ade80 | typed text: #ffffff | autocomplete: #9ca3af
+# - LSD dirs: #0099ff | symlinks: #49a4b5
+# - Ghostty palette: cyan #3ebcd4 | purple #b97bed | orange #f97316
+
+# Main background — transparent to inherit Ghostty's #121212
+theme[main_bg]=""
+
+# Main text color — matches ZSH default typed text tone
+theme[main_fg]="#c5c8c6"
+
+# Title color for boxes — crisp white, draws the eye to section headers
+theme[title]="#e8e8e8"
+
+# Highlight color for keyboard shortcuts — slightly dimmed so box borders (cpu_box) dominate
+theme[hi_fg]="#0078b8"
+
+# Background color of selected item in processes box
+theme[selected_bg]="#1e3a4a"
+
+# Foreground color of selected item in processes box
+theme[selected_fg]="#ffffff"
+
+# Color of inactive/disabled text — nearly invisible, max noise reduction
+theme[inactive_fg]="#3d3d3d"
+
+# Color of text appearing on top of graphs (uptime, net scale)
+theme[graph_text]="#6b7280"
+
+# Background color of the percentage meters — dark but visible
+theme[meter_bg]="#2a2a2a"
+
+# Misc colors for processes box including mini cpu graphs, details memory graph and details status text
+theme[proc_misc]="#7c5da0"
+
+# CPU box outline — AGY Cyan, primary observability element
+theme[cpu_box]="#00afff"
+
+# Memory/disks box outline — AGY Orange, clearly distinct from CPU cyan and Net purple
+theme[mem_box]="#f97316"
+
+# Net up/down box outline — Purple, network = exotic/rare concern
+theme[net_box]="#b97bed"
+
+# Processes box outline — Muted steel blue, processes = structural
+theme[proc_box]="#4a7fa5"
+
+# Box divider line — barely visible, zero cognitive load
+theme[div_line]="#2d2d2d"
+
+# Temperature graph — green (cool) → orange (warm) → red (critical)
+theme[temp_start]="#4ade80"
+theme[temp_mid]="#f97316"
+theme[temp_end]="#ef4444"
+
+# CPU graph — ZSH mint green (low) → AGY cyan (mid) → hot when maxed
+theme[cpu_start]="#1a6b3a"
+theme[cpu_mid]="#4ade80"
+theme[cpu_end]="#00afff"
+
+# Mem/Disk free meter (AND Disk Read IO Graph)
+# Start color MUST be bright because idle disks only show the start color
+theme[free_start]="#22c55e"
+theme[free_mid]="#4ade80"
+theme[free_end]="#86efac"
+
+# Mem/Disk cached meter (AND Disk Write IO Graph)
+# Start color MUST be bright because idle disks only show the start color
+theme[cached_start]="#8b5cf6"
+theme[cached_mid]="#a855f7"
+theme[cached_end]="#c084fc"
+
+# Mem/Disk available meter — CYAN (available = ready to use, cold & calm)
+theme[available_start]="#155e75"
+theme[available_mid]="#0891b2"
+theme[available_end]="#22d3ee"
+
+# Mem/Disk used meter — BLUE(calm)→ORANGE(warning)→RED(critical)
+# mid kicks in at 50%, so normal usage stays blue
+theme[used_start]="#1e3a5f"
+theme[used_mid]="#d97706"
+theme[used_end]="#dc2626"
+
+# Download graph — bright cyan (disk Read visibility boosted)
+theme[download_start]="#0891b2"
+theme[download_mid]="#22d3ee"
+theme[download_end]="#67e8f9"
+
+# Upload graph — bright purple (disk Write visibility boosted)
+theme[upload_start]="#7c3aed"
+theme[upload_mid]="#a855f7"
+theme[upload_end]="#d8b4fe"
+
+# Process list gradient — mint (active) fading to dark (idle/background)
+theme[process_start]="#4ade80"
+theme[process_mid]="#2d6a4f"
+theme[process_end]="#1a2e1f"

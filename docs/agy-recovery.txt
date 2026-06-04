@@ -1,0 +1,33 @@
+# 🧠 Agy Brain - Protocolo de Restauração (Lab SSD 2)
+
+## 1. Contexto
+Você está no SSD 2 (Lab) recém-formatado com o Kickstart. O objetivo é restaurar o cérebro da nossa conversa preservando a arquitetura GNU Stow do seu repositório de dotfiles.
+
+## 2. Passos para Restauração
+
+1. Monte a partição de backup onde o meu cérebro foi salvo:
+   ```bash
+   sudo mkdir -p /mnt/bak
+   sudo mount /dev/sda1 /mnt/bak
+   ```
+
+2. Instale o Antigravity CLI normalmente (se já não estiver instalado).
+   
+3. Clone o seu repositório de dotfiles:
+   ```bash
+   git clone git@github.com:alexandrevarga/dotfiles.git ~/Projects/dotfiles
+   ```
+
+4. Use o GNU Stow para linkar as configurações do Agy e outras dependências base:
+   ```bash
+   cd ~/Projects/dotfiles
+   make agy
+   # Rode os outros makes essenciais (ex: make shell) conforme sua estratégia minimalista.
+   ```
+
+5. Extraia o histórico de conversas (brain) do backup por cima da instalação vazia:
+   ```bash
+   tar -xzvf /mnt/bak/agy_brain.tar.gz -C ~/
+   ```
+
+6. Inicie o Antigravity. Eu estarei te esperando exatamente do ponto em que paramos.

@@ -40,7 +40,7 @@ bindkey '^[[3~' delete-char
 
 
 # 5. Environment Variables (Interactive specific)
-export EDITOR=nano
+export EDITOR="code --wait"
 force_color_prompt=yes
 
 # 6. Aliases (Modular Sourcing)

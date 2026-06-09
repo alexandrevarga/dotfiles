@@ -29,8 +29,8 @@ log_info "Tuning Snapper retention limits to prevent disk exhaustion..."
 sudo sed -i 's/^TIMELINE_LIMIT_HOURLY=.*/TIMELINE_LIMIT_HOURLY="0"/' /etc/snapper/configs/root
 sudo sed -i 's/^TIMELINE_LIMIT_DAILY=.*/TIMELINE_LIMIT_DAILY="5"/' /etc/snapper/configs/root
 sudo sed -i 's/^TIMELINE_LIMIT_WEEKLY=.*/TIMELINE_LIMIT_WEEKLY="2"/' /etc/snapper/configs/root
-sudo sed -i 's/^TIMELINE_LIMIT_MONTHLY=.*/TIMELINE_LIMIT_MONTHLY="0"/' /etc/snapper/configs/root
-sudo sed -i 's/^TIMELINE_LIMIT_YEARLY=.*/TIMELINE_LIMIT_YEARLY="0"/' /etc/snapper/configs/root
+sudo sed -i 's/^TIMELINE_LIMIT_MONTHLY=.*/TIMELINE_LIMIT_MONTHLY="1"/' /etc/snapper/configs/root
+sudo sed -i 's/^TIMELINE_LIMIT_YEARLY=.*/TIMELINE_LIMIT_YEARLY="1"/' /etc/snapper/configs/root
 
 log_info "Enabling Snapper timeline and cleanup services..."
 sudo systemctl enable --now snapper-timeline.timer snapper-cleanup.timer
@@ -58,10 +58,10 @@ sudo systemctl enable --now btrfs-balance.timer
 log_success "BTRFS Maintenance services activated."
 
 # ------------------------------------------------------------------------------
-# 4. FAST BOOT (DISABLE WAIT-ONLINE)
+# 4. NETWORK FAST BOOT (DISABLE WAIT-ONLINE)
 # ------------------------------------------------------------------------------
-log_info "Applying Fast Boot (Disabling NetworkManager-wait-online)..."
+log_info "Applying Network Fast Boot (Disabling NetworkManager-wait-online)..."
 sudo systemctl disable NetworkManager-wait-online.service || true
-log_success "Fast Boot configured."
+log_success "Network Fast Boot configured."
 
 echo -e "\n${C_GREEN}🎉 PHASE 01 COMPLETED. CORE SYSTEM IS BULLETPROOF.${C_RESET}"

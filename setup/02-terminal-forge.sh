@@ -20,29 +20,19 @@ log_error() { echo -e "${C_RED}[ERROR]${C_RESET} $1"; }
 echo -e "${C_CYAN}🔨 Starting Phase 02: The Terminal Forge${C_RESET}\n"
 
 # ------------------------------------------------------------------------------
-# 1. GPG IDENTITY RESTORATION
+# 1. FONTS (FIRACODE NERD FONT)
 # ------------------------------------------------------------------------------
-log_info "Restoring GPG Keys from USB Backup..."
-if [ -d "/mnt/bak/secrets/gnupg" ]; then
-    cp -r /mnt/bak/secrets/gnupg/ ~/.gnupg/
-    chmod 700 ~/.gnupg && chmod 600 ~/.gnupg/* 2>/dev/null || true
-    gpg-connect-agent reloadagent /bye
-    log_success "GPG keys restored."
-else
-    log_error "USB Backup not mounted at /mnt/bak. Please restore GPG manually later."
-fi
-
-# ------------------------------------------------------------------------------
-# 2. FONTS
-# ------------------------------------------------------------------------------
-log_info "Restoring FiraCode Nerd Font..."
-if [ -d "/mnt/bak/configs/fonts/FiraCode Nerd Font" ]; then
-    mkdir -p ~/.fonts
-    cp -r "/mnt/bak/configs/fonts/FiraCode Nerd Font/" ~/.fonts/
+log_info "Downloading and installing FiraCode Nerd Font..."
+FONT_DIR="$HOME/.local/share/fonts/FiraCode"
+if [ ! -d "$FONT_DIR" ]; then
+    mkdir -p "$FONT_DIR"
+    wget -qO /tmp/FiraCode.zip "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip"
+    unzip -qo /tmp/FiraCode.zip -d "$FONT_DIR"
+    rm /tmp/FiraCode.zip
     fc-cache -fv
-    log_success "Fonts installed."
+    log_success "FiraCode Nerd Font installed."
 else
-    log_error "Font backup not found at /mnt/bak. Manual font installation required."
+    log_info "FiraCode Nerd Font already installed."
 fi
 
 # ------------------------------------------------------------------------------

@@ -23,30 +23,15 @@ echo -e "${C_CYAN}🧩 Starting Phase 05: GNOME Extensions & Dconf Restitution${
 DOTFILES_EXT_DIR="$HOME/Projects/dotfiles/config-apps/.config/gnome-extensions"
 
 # ------------------------------------------------------------------------------
-# 1. EXTENSION MANAGER (gext via pipx)
+# 1. EXTENSION MANAGER (FLATPAK)
 # ------------------------------------------------------------------------------
-log_info "Installing pipx and gnome-extensions-cli (gext)..."
-sudo dnf5 install -y pipx
-pipx install gnome-extensions-cli
-export PATH="$HOME/.local/bin:$PATH"
-log_success "Extension CLI ready."
+log_info "Installing GNOME Extension Manager (GUI)..."
+sudo flatpak install -y flathub com.mattjakeman.ExtensionManager
+log_success "Extension Manager installed."
 
-# ------------------------------------------------------------------------------
-# 2. INSTALL EXTENSIONS FROM DOTFILES LIST
-# ------------------------------------------------------------------------------
-log_info "Reading enabled extensions from dotfiles..."
-if [ -f "$DOTFILES_EXT_DIR/enabled-list.txt" ]; then
-    while read -r ext; do
-        # Ignore empty lines and comments
-        [[ -z "$ext" || "$ext" == \#* ]] && continue
-        log_info "Installing extension: $ext"
-        gext install "$ext" || log_warn "Failed to install $ext, continuing..."
-    done < "$DOTFILES_EXT_DIR/enabled-list.txt"
-    log_success "All extensions installed."
-else
-    log_error "enabled-list.txt not found in dotfiles!"
-    exit 1
-fi
+echo -e "\n${C_YELLOW}🛑 INTERVENTION: Open Extension Manager and install your extensions manually.${C_RESET}"
+echo -e "${C_YELLOW}Check $DOTFILES_EXT_DIR/enabled-list.txt for the list.${C_RESET}"
+read -p "Press [ENTER] when you finish installing all extensions..."
 
 # ------------------------------------------------------------------------------
 # 3. RESTORE DCONF DUMP (THE SINGLE SOURCE OF TRUTH)

@@ -13,3 +13,21 @@ alias gemini-debug='type -a gemini'
 # Fedora Atomic System Modes (Safe Power)
 alias go_atomic='setfont latarcyrheb-sun32 && sudo systemctl isolate multi-user.target'
 alias exit_atomic='sudo systemctl isolate graphical.target'
+
+# =====================================================================
+# SRE GIT & GITHUB WORKFLOW (Branch Protection / PRs)
+# =====================================================================
+# Adicionar e assinar um commit novo
+alias gca='git commit -a -S -m'
+
+# Assinar um commit que a IA (eu) fiz na sua máquina
+alias g-sign-ai='git rebase -i main --exec "git commit --amend --no-edit -S"'
+
+# Criar PR via GitHub CLI de forma automática (usa a msg do commit)
+alias gpr='gh pr create --fill'
+
+# Dar merge no PR e deletar a branch (Aprovação Final)
+alias gmerge='gh pr merge --squash --delete-branch'
+
+# Sincronizar a main e limpar o cadáver da feature branch local
+alias gclean='git checkout main && git pull origin main && git fetch -p'

@@ -3,7 +3,7 @@
 # AGY SRE BOOTSTRAP - 05 GNOME EXTENSIONS & DCONF
 # ==============================================================================
 # Execution Phase: Post-Virtualization
-# Goal: Restore GNOME UI, Extensions, and dconf state directly from dotfiles.
+# Goal: Automate GNOME extensions installation via pipx and execute setup_keys.sh.
 
 set -euo pipefail
 
@@ -18,31 +18,47 @@ log_success() { echo -e "${C_GREEN}[SUCCESS]${C_RESET} $1"; }
 log_warn() { echo -e "${C_YELLOW}[WARN]${C_RESET} $1"; }
 log_error() { echo -e "${C_RED}[ERROR]${C_RESET} $1"; }
 
-echo -e "${C_CYAN}🧩 Starting Phase 05: GNOME Extensions & Dconf Restitution${C_RESET}\n"
+echo -e "${C_CYAN}🧩 Starting Phase 05: GNOME Extensions & Setup Keys${C_RESET}\n"
 
 DOTFILES_EXT_DIR="$HOME/Projects/dotfiles/config-apps/.config/gnome-extensions"
 
 # ------------------------------------------------------------------------------
-# 1. EXTENSION MANAGER (FLATPAK)
+# 1. EXTENSION AUTOMATION (gext via pipx)
 # ------------------------------------------------------------------------------
-log_info "Installing GNOME Extension Manager (GUI)..."
-sudo flatpak install -y flathub com.mattjakeman.ExtensionManager
-log_success "Extension Manager installed."
-
-echo -e "\n${C_YELLOW}🛑 INTERVENTION: Open Extension Manager and install your extensions manually.${C_RESET}"
-echo -e "${C_YELLOW}Check $DOTFILES_EXT_DIR/enabled-list.txt for the list.${C_RESET}"
-read -p "Press [ENTER] when you finish installing all extensions..."
+log_info "Installing pipx and gnome-extensions-cli (gext) for automation..."
+sudo dnf5 install -y pipx
+pipx install gnome-extensions-cli
+export PATH="$HOME/.local/bin:$PATH"
+log_success "Extension CLI ready."
 
 # ------------------------------------------------------------------------------
-# 3. RESTORE DCONF DUMP (THE SINGLE SOURCE OF TRUTH)
+# 2. INSTALL EXTENSIONS FROM DOTFILES LIST
 # ------------------------------------------------------------------------------
-log_info "Loading dconf dump from dotfiles..."
-if [ -f "$DOTFILES_EXT_DIR/all-extensions.dconf" ]; then
-    dconf load /org/gnome/shell/extensions/ < "$DOTFILES_EXT_DIR/all-extensions.dconf"
-    log_success "GNOME dconf loaded successfully."
+log_info "Reading enabled extensions from dotfiles..."
+if [ -f "$DOTFILES_EXT_DIR/enabled-list.txt" ]; then
+    while read -r ext; do
+        # Ignore empty lines and comments
+        [[ -z "$ext" || "$ext" == \#* ]] && continue
+        log_info "Installing extension: $ext"
+        gext install "$ext" || log_warn "Failed to install $ext, continuing..."
+    done < "$DOTFILES_EXT_DIR/enabled-list.txt"
+    log_success "All extensions installed automatically."
 else
-    log_error "all-extensions.dconf not found in dotfiles!"
+    log_error "enabled-list.txt not found in dotfiles!"
     exit 1
 fi
 
-echo -e "\n${C_GREEN}🎉 PHASE 05 COMPLETED. GNOME ENVIRONMENT IS RESTORED.${C_RESET}"
+# ------------------------------------------------------------------------------
+# 3. CONFIGURE GNOME VIA SETUP_KEYS.SH
+# ------------------------------------------------------------------------------
+log_info "Running setup_keys.sh to map workspaces, shortcuts, and extension configs..."
+if [ -x "$HOME/.local/bin/setup_keys.sh" ]; then
+    "$HOME/.local/bin/setup_keys.sh"
+    log_success "setup_keys.sh executed successfully."
+else
+    log_error "setup_keys.sh not found or not executable at ~/.local/bin/setup_keys.sh"
+    log_info "Please ensure Phase 02 (make cli) was completed."
+    exit 1
+fi
+
+echo -e "\n${C_GREEN}🎉 PHASE 05 COMPLETED. GNOME ENVIRONMENT IS FULLY AUTOMATED.${C_RESET}"

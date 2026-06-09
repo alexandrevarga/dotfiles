@@ -19,12 +19,20 @@ log_success() { echo -e "${C_GREEN}[SUCCESS]${C_RESET} $1"; }
 echo -e "${C_CYAN}🖥️  Starting Phase 03: Workspace Core (GUI & Flatpaks)${C_RESET}\n"
 
 # ------------------------------------------------------------------------------
-# 1. FLATPAK ARSENAL (Productivity & Comms)
+# 1. VS CODE (RPM NATIVE)
+# ------------------------------------------------------------------------------
+log_info "Installing VS Code via Microsoft RPM Repository for SDK compatibility..."
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo >/dev/null
+sudo dnf5 install -y code
+log_success "VS Code installed via RPM."
+
+# ------------------------------------------------------------------------------
+# 2. FLATPAK ARSENAL (Productivity & Comms)
 # ------------------------------------------------------------------------------
 log_info "Installing core graphical applications via Flatpak..."
 
 APPS=(
-    "com.visualstudio.code"
     "one.ablaze.floorp"
     "md.obsidian.Obsidian"
     "org.telegram.desktop"

@@ -18,23 +18,25 @@ log_success() { echo -e "${C_GREEN}[SUCCESS]${C_RESET} $1"; }
 
 echo -e "${C_CYAN}🎮 Starting Phase 06: Entertainment & Gaming${C_RESET}\n"
 
-APPS=(
-    "com.valvesoftware.Steam"
-    "com.heroicgameslauncher.hgl"
-    "com.stremio.Stremio"
-)
+log_info "Installing Default Media (Stremio)..."
+sudo flatpak install -y flathub com.stremio.Stremio
+log_success "Stremio installed."
 
-log_info "Installing Gaming and Media Flatpaks..."
-for app in "${APPS[@]}"; do
-    log_info "Installing $app..."
-    sudo flatpak install -y flathub "$app"
-done
-log_success "Entertainment ecosystem installed."
+echo -e "\n${C_YELLOW}❓ Gaming Flatpaks are heavy. Do you want to install Steam and Heroic Games Launcher? [y/N] ${C_RESET}"
+read -p "" install_games
 
-echo -e "\n${C_YELLOW}🛑 RESTORE INTERVENTION:${C_RESET}"
-echo -e "If you have local saves/configs for Steam or Heroic, plug in your backup USB."
-echo -e "Run the following commands manually to restore:"
-echo -e "  rsync -avh /mnt/bak/flatpak_data/com.valvesoftware.Steam/ ~/.var/app/com.valvesoftware.Steam/"
-echo -e "  rsync -avh /mnt/bak/flatpak_data/com.heroicgameslauncher.hgl/ ~/.var/app/com.heroicgameslauncher.hgl/"
+if [[ "$install_games" =~ ^[Yy]$ ]]; then
+    log_info "Installing Gaming Flatpaks..."
+    sudo flatpak install -y flathub com.valvesoftware.Steam com.heroicgameslauncher.hgl
+    log_success "Steam and Heroic installed."
+
+    echo -e "\n${C_YELLOW}🛑 RESTORE INTERVENTION:${C_RESET}"
+    echo -e "If you have local saves/configs for Steam or Heroic, plug in your backup USB."
+    echo -e "Run the following commands manually to restore:"
+    echo -e "  rsync -avh /mnt/bak/flatpak_data/com.valvesoftware.Steam/ ~/.var/app/com.valvesoftware.Steam/"
+    echo -e "  rsync -avh /mnt/bak/flatpak_data/com.heroicgameslauncher.hgl/ ~/.var/app/com.heroicgameslauncher.hgl/"
+else
+    log_info "Skipping gaming ecosystem."
+fi
 
 echo -e "\n${C_GREEN}🎉 PHASE 06 COMPLETED. ENTERTAINMENT IS READY.${C_RESET}"

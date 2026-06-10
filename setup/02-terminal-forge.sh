@@ -39,7 +39,9 @@ fi
 # 3. OH-MY-POSH (PROMPT ENGINE)
 # ------------------------------------------------------------------------------
 log_info "Installing Oh-My-Posh..."
-curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin
+wget -qO /tmp/omp_install.sh https://ohmyposh.dev/install.sh
+bash /tmp/omp_install.sh -d ~/.local/bin
+rm -f /tmp/omp_install.sh
 log_success "Oh-My-Posh installed."
 
 # ------------------------------------------------------------------------------
@@ -53,7 +55,9 @@ log_success "CLI tools installed."
 # 5. PYTHON UV MANAGER & TMUXP
 # ------------------------------------------------------------------------------
 log_info "Installing uv (Python tool manager)..."
-curl -LsSf https://astral.sh/uv/install.sh | sh
+wget -qO /tmp/uv_install.sh https://astral.sh/uv/install.sh
+sh /tmp/uv_install.sh
+rm -f /tmp/uv_install.sh
 export PATH="$HOME/.cargo/bin:$PATH" # Ensure uv is available in path temporarily
 log_info "Installing tmuxp via uv..."
 uv tool install tmuxp

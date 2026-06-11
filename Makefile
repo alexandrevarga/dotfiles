@@ -1,4 +1,4 @@
-TARGETS := agy cli config-apps easyeffects sys-monitors shell theme
+TARGETS := agy cli config-apps easyeffects sys-monitors shell theme audio
 
 .PHONY: all $(TARGETS) clean
 

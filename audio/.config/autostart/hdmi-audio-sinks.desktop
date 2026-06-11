@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Injetor de Áudio HDMI
+Exec=sh -c "amixer -c 0 sset IEC958,0 unmute; amixer -c 0 sset IEC958,1 unmute; amixer -c 0 sset IEC958,2 unmute; pactl load-module module-alsa-sink device=hw:0,3 sink_name=Monitor_ACER sink_properties=device.description=Monitor_ACER; pactl load-module module-alsa-sink device=hw:0,7 sink_name=Monitor_LG sink_properties=device.description=Monitor_LG"
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true

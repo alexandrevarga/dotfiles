@@ -64,4 +64,14 @@ log_info "Applying Network Fast Boot (Disabling NetworkManager-wait-online)..."
 sudo systemctl disable NetworkManager-wait-online.service || true
 log_success "Network Fast Boot configured."
 
+# ------------------------------------------------------------------------------
+# 5. REALTIME AUDIO LIMITS (BAZOOKA)
+# ------------------------------------------------------------------------------
+log_info "Injecting Real-Time Priority (RTPRIO 95) for @audio group..."
+sudo bash -c 'cat << EOF > /etc/security/limits.d/99-audio.conf
+@audio - rtprio 95
+@audio - memlock unlimited
+EOF'
+log_success "Audio Real-Time Limits injected."
+
 echo -e "\n${C_GREEN}🎉 PHASE 01 COMPLETED. CORE SYSTEM IS BULLETPROOF.${C_RESET}"

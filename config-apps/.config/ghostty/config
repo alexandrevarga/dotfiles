@@ -26,8 +26,8 @@ palette = 15=#e5e5e5
 window-padding-x = 10
 window-padding-y = 10
 window-decoration = true
-window-width = 9999
-window-height = 9999
+window-width = 250
+window-height = 80
 
 # Font
 font-family = "FiraCode Nerd Font Mono"
